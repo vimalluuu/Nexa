@@ -1,0 +1,2 @@
+Keeps data/processed/ in Git. Final train and validation artifacts belong under
+data/processed/train/ and data/processed/validation/. Large artifacts stay local.

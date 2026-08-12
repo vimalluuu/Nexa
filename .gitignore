@@ -28,10 +28,63 @@ checkpoints/
 *.safetensors
 *.onnx
 
-# --- Data (raw datasets can be gigabytes) ------------------------------------
-data/raw/
-data/processed/
+# --- Data (datasets can be gigabytes) ----------------------------------------
+# Keep the dataset pipeline structure, docs, metadata, manifests, reports, and
+# tiny permitted samples in git. Keep real dataset payloads out of git.
 data/memories.json
+
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+!data/raw/*/
+data/raw/*/*
+!data/raw/*/metadata.yaml
+!data/raw/nexa_demo/*.txt
+
+data/cleaned/*
+!data/cleaned/.gitkeep
+!data/cleaned/README.md
+!data/cleaned/*/
+data/cleaned/*/*
+!data/cleaned/*/metadata.yaml
+
+data/deduplicated/*
+!data/deduplicated/.gitkeep
+!data/deduplicated/README.md
+!data/deduplicated/*/
+data/deduplicated/*/*
+!data/deduplicated/*/metadata.yaml
+
+data/splits/*
+!data/splits/train/
+!data/splits/validation/
+data/splits/train/*
+!data/splits/train/.gitkeep
+!data/splits/train/README.md
+data/splits/validation/*
+!data/splits/validation/.gitkeep
+!data/splits/validation/README.md
+
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+!data/processed/train/
+!data/processed/validation/
+!data/processed/tokenizer/
+data/processed/train/*
+!data/processed/train/.gitkeep
+!data/processed/train/README.md
+data/processed/validation/*
+!data/processed/validation/.gitkeep
+!data/processed/validation/README.md
+
+# Processed tokenizer artifacts are generated from source data. Existing tiny
+# demo artifacts may remain tracked, but new generated files should stay local.
+data/processed/tokenizer/*
+
+# Manifests and reports are expected to be small, reviewable text artifacts.
+!data/manifests/
+!data/reports/
 
 # --- Logs --------------------------------------------------------------------
 logs/

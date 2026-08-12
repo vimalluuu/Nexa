@@ -10,7 +10,7 @@ Usage
 
     # Train on your own corpus with a custom vocab size:
     python scripts/train_tokenizer.py \\
-        --corpus data/raw/my_corpus.txt \\
+        --corpus data/raw/my_dataset/my_corpus.txt \\
         --output data/processed/tokenizer \\
         --vocab-size 2000 \\
         --min-frequency 2
@@ -78,7 +78,7 @@ def main() -> None:
     parser.add_argument(
         "--corpus",
         type=Path,
-        default=Path("data/raw/sample_corpus.txt"),
+        default=Path("data/raw/nexa_demo/sample_corpus.txt"),
         help="Path to training corpus (plain text, one document per line).",
     )
     parser.add_argument(

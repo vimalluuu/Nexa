@@ -18,7 +18,7 @@ Usage
 
     # Full training on custom corpus:
     python scripts/train.py \\
-        --corpus   data/raw/tiny_train.txt \\
+        --corpus   data/raw/my_dataset/tiny_train.txt \\
         --tokenizer data/processed/tokenizer \\
         --output   checkpoints/ \\
         --max-steps 1000 \\
@@ -180,7 +180,7 @@ def parse_args() -> argparse.Namespace:
         help="Run a quick demo (tiny model + tiny corpus, ~30s on CPU).",
     )
     p.add_argument(
-        "--corpus", type=Path, default=Path("data/raw/tiny_train.txt"),
+        "--corpus", type=Path, default=Path("data/raw/nexa_demo/tiny_train.txt"),
         help="Path to the training corpus (plain text, UTF-8).",
     )
     p.add_argument(

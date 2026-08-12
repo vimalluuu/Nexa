@@ -1,0 +1,13 @@
+dataset_name: nexa_demo
+source: Nexa repository demonstration corpus
+official_url: UNKNOWN
+version: phase_1_to_7_demo
+license: Project-owned sample text; repository license applies
+download_date: 2026-08-12
+original_filename:
+  - sample_corpus.txt
+  - tiny_train.txt
+checksum_sha256:
+  sample_corpus.txt: 100706e6ced7f13cdca94df18c6d9797f63a1cb62258a5a4c36c6acced9de644
+  tiny_train.txt: 824ed2c04bcd1945d72542fa1fdcc9eb2858dfadcc8ef23012dc127404f477a5
+approximate_size: 4.2 KB

@@ -1,0 +1,2 @@
+Keeps data/raw/ in Git. Put each independently sourced raw dataset in its
+own subdirectory with metadata.yaml. Do not edit downloaded raw files in place.

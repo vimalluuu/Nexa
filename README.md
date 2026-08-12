@@ -110,7 +110,7 @@ python -c "from nexa.utils import load_config; cfg = load_config('configs/model_
 ```
 nexa/
 ├── configs/          # YAML config files (model, train, inference)
-├── data/             # Raw and processed training data
+├── data/             # Dataset pipeline stages, manifests, and reports
 ├── docs/             # Architecture notes and concept explanations
 ├── nexa/             # Main Python package
 │   ├── tokenizer/    # BPE tokenizer (Phase 2)
@@ -149,6 +149,26 @@ Source code and configuration files belong in Git. For future large Nexa models,
 ## Dataset Policy
 
 Future Nexa training datasets must be checked for licensing and redistribution rights before being committed. Small, project-owned demonstration or sample datasets can be tracked in Git. Private datasets, copyrighted data without permission, personal data, and huge generated datasets must not be uploaded to the repository.
+
+Dataset work must use separate pipeline stages:
+
+```text
+data/raw/<dataset_name>/
+data/cleaned/<dataset_name>/
+data/deduplicated/<dataset_name>/
+data/splits/train/
+data/splits/validation/
+data/processed/train/
+data/processed/validation/
+data/manifests/
+data/reports/
+```
+
+Raw source files from different datasets must never be mixed in one directory.
+Every independently sourced dataset directory must include metadata for name,
+source, official URL, version, license, download date, original filename,
+checksum, and approximate size. Raw data is never modified in place or deleted
+automatically. See `docs/datasets/dataset_folder_organization.md`.
 
 ---
 
