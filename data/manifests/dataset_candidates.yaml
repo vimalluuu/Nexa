@@ -1,0 +1,514 @@
+research_date: "2026-08-13"
+phase: "8.2A"
+status: "research_only_no_downloads"
+notes:
+  - "This manifest records candidate metadata only."
+  - "No external datasets were downloaded."
+  - "UNKNOWN is used where official information was not verified."
+scoring_dimensions:
+  - license_clarity
+  - training_permission
+  - text_quality
+  - text_diversity
+  - language_suitability
+  - data_cleanliness
+  - reproducibility
+  - size_suitability
+candidates:
+  - id: project_gutenberg
+    dataset_name: "Project Gutenberg"
+    official_source: "Project Gutenberg"
+    official_url: "https://www.gutenberg.org/"
+    download_url: "https://www.gutenberg.org/ebooks/"
+    version: "Rolling collection; use per-ebook IDs and retrieval date"
+    license: "Project Gutenberg License / public-domain status varies by country"
+    license_url: "https://www.gutenberg.org/policy/license.html"
+    language: "English subset recommended"
+    approximate_size: "Full collection large; recommended subset 10-50 MB"
+    approximate_document_count: "About 79k ebooks reported by official site"
+    text_type: "Public-domain books, fiction, essays, reference works"
+    known_limitations: "U.S.-centric public-domain status; boilerplate removal required; older-language bias"
+    training_use_permitted: "YES for carefully selected public-domain works"
+    redistribution_permitted: "YES with Project Gutenberg license/trademark constraints when redistributing PG editions"
+    attribution_required: "License/trademark notices may need preservation; attribution depends on redistribution format"
+    commercial_use_permitted: "YES for unrestricted public-domain content, subject to PG trademark rules"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "MEDIUM outside the U.S. or for unverified works"
+    benefit_for_nexa: "High-quality long-form public-domain prose and stories"
+    license_confidence: "HIGH for selected U.S. public-domain works; MEDIUM internationally"
+    scores:
+      license_clarity: 4
+      training_permission: 5
+      text_quality: 4
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 4
+      size_suitability: 5
+      total: 34
+    recommendation: "secondary"
+
+  - id: standard_ebooks
+    dataset_name: "Standard Ebooks"
+    official_source: "Standard Ebooks"
+    official_url: "https://standardebooks.org/"
+    download_url: "https://standardebooks.org/ebooks"
+    version: "Rolling collection; use ebook repository/tag/date"
+    license: "Public domain / CC0 for Standard Ebooks-produced content"
+    license_url: "https://standardebooks.org/about/standard-ebooks-and-the-public-domain"
+    language: "English"
+    approximate_size: "UNKNOWN; recommended subset 10-50 MB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Proofread public-domain ebooks"
+    known_limitations: "Smaller than Project Gutenberg; EPUB/XHTML extraction needed; mostly classics"
+    training_use_permitted: "YES"
+    redistribution_permitted: "YES"
+    attribution_required: "NO under CC0/public-domain posture; provenance attribution recommended"
+    commercial_use_permitted: "YES"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "LOW for U.S. use; verify individual works for non-U.S. distribution"
+    benefit_for_nexa: "Clean, proofread long-form prose with consistent formatting"
+    license_confidence: "HIGH"
+    scores:
+      license_clarity: 5
+      training_permission: 5
+      text_quality: 5
+      text_diversity: 3
+      language_suitability: 5
+      data_cleanliness: 4
+      reproducibility: 4
+      size_suitability: 5
+      total: 36
+    recommendation: "primary"
+
+  - id: simple_english_wikipedia
+    dataset_name: "Simple English Wikipedia"
+    official_source: "Wikimedia Dumps"
+    official_url: "https://dumps.wikimedia.org/simplewiki/latest/"
+    download_url: "https://dumps.wikimedia.org/simplewiki/latest/simplewiki-latest-pages-articles.xml.bz2"
+    version: "latest checked 2026-08-13; file dated 2026-08-04"
+    license: "CC BY-SA 4.0 and GFDL for original text"
+    license_url: "https://dumps.wikimedia.org/legal.html"
+    language: "Simple English"
+    approximate_size: "pages-articles XML bzip2 about 354 MB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Encyclopedic general knowledge"
+    known_limitations: "Wiki markup extraction; attribution/share-alike compliance; simplified style"
+    training_use_permitted: "YES if license obligations are satisfied"
+    redistribution_permitted: "YES under license terms"
+    attribution_required: "YES"
+    commercial_use_permitted: "YES under CC BY-SA, with obligations"
+    personal_data_concerns: "LOW to MEDIUM"
+    copyright_concerns: "LOW to MEDIUM"
+    benefit_for_nexa: "Concise general-knowledge text in a manageable dump"
+    license_confidence: "HIGH for license identity; MEDIUM for compliance details"
+    scores:
+      license_clarity: 4
+      training_permission: 4
+      text_quality: 4
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 5
+      size_suitability: 4
+      total: 33
+    recommendation: "secondary"
+
+  - id: english_wikibooks
+    dataset_name: "English Wikibooks"
+    official_source: "Wikimedia Dumps"
+    official_url: "https://dumps.wikimedia.org/enwikibooks/latest/"
+    download_url: "https://dumps.wikimedia.org/enwikibooks/latest/enwikibooks-latest-pages-articles.xml.bz2"
+    version: "latest checked 2026-08-13; file dated 2026-08-04"
+    license: "CC BY-SA 4.0 and GFDL for original text"
+    license_url: "https://dumps.wikimedia.org/legal.html"
+    language: "English"
+    approximate_size: "pages-articles XML bzip2 about 203 MB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Educational textbooks and manuals"
+    known_limitations: "Uneven completeness; wiki markup cleanup; attribution/share-alike obligations"
+    training_use_permitted: "YES if license obligations are satisfied"
+    redistribution_permitted: "YES under license terms"
+    attribution_required: "YES"
+    commercial_use_permitted: "YES under CC BY-SA, with obligations"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "MEDIUM"
+    benefit_for_nexa: "Educational explanations and procedural prose"
+    license_confidence: "HIGH for license identity; MEDIUM for compliance details"
+    scores:
+      license_clarity: 4
+      training_permission: 4
+      text_quality: 3
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 5
+      size_suitability: 4
+      total: 32
+    recommendation: "possible_secondary"
+
+  - id: english_wikisource
+    dataset_name: "English Wikisource"
+    official_source: "Wikimedia Dumps"
+    official_url: "https://dumps.wikimedia.org/enwikisource/latest/"
+    download_url: "https://dumps.wikimedia.org/enwikisource/latest/enwikisource-latest-pages-articles.xml.bz2"
+    version: "latest checked 2026-08-13; file dated 2026-08-04"
+    license: "Mixed public domain/source works plus CC BY-SA/GFDL contribution layer"
+    license_url: "https://dumps.wikimedia.org/legal.html"
+    language: "English"
+    approximate_size: "pages-articles XML bzip2 about 3.4 GB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Source texts, books, historical documents"
+    known_limitations: "Large; source-work license verification; wiki cleanup"
+    training_use_permitted: "YES for compliant works, with filtering"
+    redistribution_permitted: "YES for compliant works"
+    attribution_required: "YES for Wikimedia contribution layer"
+    commercial_use_permitted: "YES for compliant CC BY-SA/public-domain works"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "MEDIUM"
+    benefit_for_nexa: "Large public-domain-style source-text diversity"
+    license_confidence: "MEDIUM"
+    scores:
+      license_clarity: 3
+      training_permission: 4
+      text_quality: 4
+      text_diversity: 5
+      language_suitability: 5
+      data_cleanliness: 2
+      reproducibility: 5
+      size_suitability: 2
+      total: 30
+    recommendation: "defer"
+
+  - id: openstax
+    dataset_name: "OpenStax Textbooks"
+    official_source: "OpenStax"
+    official_url: "https://openstax.org/"
+    download_url: "Per-book downloads from OpenStax book pages"
+    version: "Per-textbook edition"
+    license: "CC BY-NC-SA 4.0 according to current OpenStax licensing help"
+    license_url: "https://help.openstax.org/s/article/Licensing-information-of-OpenStax-textbooks"
+    language: "English, with some multilingual offerings"
+    approximate_size: "UNKNOWN"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Peer-reviewed educational textbooks"
+    known_limitations: "NonCommercial restriction; share-alike; per-book workflow"
+    training_use_permitted: "LIKELY YES for noncommercial research/education; LICENSE UNCERTAIN for commercial path"
+    redistribution_permitted: "YES for noncommercial redistribution under CC BY-NC-SA"
+    attribution_required: "YES"
+    commercial_use_permitted: "NO"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "LOW if terms followed"
+    benefit_for_nexa: "High-quality educational prose"
+    license_confidence: "HIGH for current noncommercial license; MEDIUM for Nexa V1 suitability"
+    scores:
+      license_clarity: 4
+      training_permission: 3
+      text_quality: 5
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 4
+      reproducibility: 4
+      size_suitability: 5
+      total: 34
+    recommendation: "not_recommended_due_to_noncommercial_restriction"
+
+  - id: bccampus_opened
+    dataset_name: "BCcampus OpenEd Textbooks"
+    official_source: "BCcampus OpenEd"
+    official_url: "https://open.bccampus.ca/"
+    download_url: "Per-book downloads from BCcampus/Pressbooks pages"
+    version: "Per-textbook edition"
+    license: "Mostly CC BY 4.0 for BCcampus-published OER, with exceptions"
+    license_url: "https://open.bccampus.ca/create-open-textbooks/creative-commons-open-licences-for-authors/"
+    language: "English"
+    approximate_size: "UNKNOWN; recommended subset 5-15 MB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Open textbooks and educational resources"
+    known_limitations: "Verify each book and third-party exceptions"
+    training_use_permitted: "YES for CC BY materials"
+    redistribution_permitted: "YES for CC BY materials"
+    attribution_required: "YES"
+    commercial_use_permitted: "YES for CC BY materials"
+    personal_data_concerns: "LOW"
+    copyright_concerns: "LOW to MEDIUM due to exceptions"
+    benefit_for_nexa: "Educational explanations under permissive terms"
+    license_confidence: "MEDIUM to HIGH after per-book verification"
+    scores:
+      license_clarity: 4
+      training_permission: 5
+      text_quality: 5
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 4
+      reproducibility: 3
+      size_suitability: 5
+      total: 35
+    recommendation: "secondary_after_per_book_verification"
+
+  - id: federal_register
+    dataset_name: "Federal Register Bulk XML"
+    official_source: "Office of the Federal Register / GovInfo / Data.gov"
+    official_url: "https://www.federalregister.gov/reader-aids/developer-resources/bulk-data"
+    download_url: "https://www.govinfo.gov/bulkdata/FR/"
+    version: "Annual/daily XML files; select specific years"
+    license: "U.S. federal government public-domain material / 1 CFR 2.6 reproduction rule"
+    license_url: "https://www.federalregister.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site"
+    language: "English"
+    approximate_size: "UNKNOWN for selected subset"
+    approximate_document_count: "About 250 issues per year"
+    text_type: "Rules, notices, executive documents, agency prose"
+    known_limitations: "Dense regulatory style; XML cleanup; possible incorporated material"
+    training_use_permitted: "YES for government-authored Federal Register material"
+    redistribution_permitted: "YES"
+    attribution_required: "NO copyright attribution required; provenance recommended"
+    commercial_use_permitted: "YES"
+    personal_data_concerns: "MEDIUM"
+    copyright_concerns: "LOW to MEDIUM for incorporated third-party material"
+    benefit_for_nexa: "Public-domain contemporary formal prose"
+    license_confidence: "HIGH for core Federal Register material"
+    scores:
+      license_clarity: 5
+      training_permission: 5
+      text_quality: 3
+      text_diversity: 3
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 5
+      size_suitability: 4
+      total: 33
+    recommendation: "possible_small_secondary"
+
+  - id: govinfo_congressional_bulk
+    dataset_name: "GovInfo Congressional Bills / Congressional Record Bulk Data"
+    official_source: "U.S. Government Publishing Office GovInfo"
+    official_url: "https://www.govinfo.gov/"
+    download_url: "https://www.govinfo.gov/bulkdata/"
+    version: "Collection/year/congress-specific"
+    license: "U.S. government public-domain material, with caveats for non-government or third-party material"
+    license_url: "https://ask.gpo.gov/s/article/What-are-the-copyright-and-use-policies-of-govinfo-content"
+    language: "English"
+    approximate_size: "UNKNOWN"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Legislation, reports, congressional proceedings"
+    known_limitations: "Formal/repetitive; XML cleanup; mixed inserts possible"
+    training_use_permitted: "YES for U.S. government works"
+    redistribution_permitted: "YES for U.S. government works"
+    attribution_required: "NO copyright attribution required; provenance recommended"
+    commercial_use_permitted: "YES for public-domain government works"
+    personal_data_concerns: "MEDIUM"
+    copyright_concerns: "MEDIUM for non-government inserts or contractor material"
+    benefit_for_nexa: "Public-domain civic/legal text"
+    license_confidence: "HIGH for government works; MEDIUM for mixed collections"
+    scores:
+      license_clarity: 4
+      training_permission: 5
+      text_quality: 3
+      text_diversity: 3
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 5
+      size_suitability: 4
+      total: 32
+    recommendation: "possible_small_secondary"
+
+  - id: pmc_oa_comm
+    dataset_name: "PMC Open Access Subset, Commercial-Use-Allowed Portion"
+    official_source: "PubMed Central / NIH National Library of Medicine"
+    official_url: "https://pmc.ncbi.nlm.nih.gov/tools/openftlist/"
+    download_url: "https://pmc.ncbi.nlm.nih.gov/tools/ftp/"
+    version: "Rolling; use current file list/date and article license metadata"
+    license: "Per-article; NIH notes commercial usage is limited to oa_comm, which includes CC BY and CC0 articles"
+    license_url: "https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/"
+    language: "Mostly English"
+    approximate_size: "Millions of articles; curated sample recommended 10-100 MB"
+    approximate_document_count: "Millions overall; exact current count UNKNOWN"
+    text_type: "Biomedical and life-science research articles"
+    known_limitations: "Per-article licensing; avoid noncommercial and custom license groups for V1; domain imbalance; privacy review"
+    training_use_permitted: "YES for articles whose license permits reuse"
+    redistribution_permitted: "YES for CC0/CC BY subject to terms"
+    attribution_required: "YES for CC BY/CC BY-SA"
+    commercial_use_permitted: "YES only for commercial-use-allowed set"
+    personal_data_concerns: "LOW to MEDIUM"
+    copyright_concerns: "MEDIUM"
+    benefit_for_nexa: "Scientific/technical prose as small secondary"
+    license_confidence: "MEDIUM"
+    scores:
+      license_clarity: 3
+      training_permission: 4
+      text_quality: 5
+      text_diversity: 3
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 4
+      size_suitability: 3
+      total: 30
+    recommendation: "defer_or_tiny_secondary_after_filtering"
+
+  - id: caselaw_access_project
+    dataset_name: "Caselaw Access Project"
+    official_source: "Harvard Law School Library Innovation Lab"
+    official_url: "https://case.law/"
+    download_url: "https://case.law/bulk/"
+    version: "Rolling/bulk release; use release date"
+    license: "CC0 1.0 Universal"
+    license_url: "https://case.law/terms/"
+    language: "English"
+    approximate_size: "Very large; about 40M pages / 6.5M cases described in official announcements"
+    approximate_document_count: "About 6.5M cases"
+    text_type: "U.S. court opinions"
+    known_limitations: "Domain-specific; very large; possible OCR/citation cleanup; sensitive facts"
+    training_use_permitted: "YES"
+    redistribution_permitted: "YES"
+    attribution_required: "NO under CC0; provenance recommended"
+    commercial_use_permitted: "YES"
+    personal_data_concerns: "MEDIUM"
+    copyright_concerns: "LOW for CC0 corpus; privacy sensitivity remains"
+    benefit_for_nexa: "Formal legal reasoning prose"
+    license_confidence: "HIGH"
+    scores:
+      license_clarity: 5
+      training_permission: 5
+      text_quality: 3
+      text_diversity: 2
+      language_suitability: 5
+      data_cleanliness: 3
+      reproducibility: 4
+      size_suitability: 2
+      total: 29
+    recommendation: "defer"
+
+  - id: chronicling_america
+    dataset_name: "Chronicling America OCR"
+    official_source: "Library of Congress"
+    official_url: "https://www.loc.gov/collections/chronicling-america/"
+    download_url: "https://www.loc.gov/collections/chronicling-america/datasets/"
+    version: "Rolling collection/dataset batches"
+    license: "Public domain or no known copyright restrictions according to LOC rights statement"
+    license_url: "https://www.loc.gov/collections/chronicling-america/about-this-collection/rights-and-access/"
+    language: "English and some multilingual U.S. newspapers"
+    approximate_size: "Millions of pages; selected subset only"
+    approximate_document_count: "Millions of newspaper pages"
+    text_type: "Historical newspapers, OCR text"
+    known_limitations: "OCR noise; historical language; personal names and sensitive historical material"
+    training_use_permitted: "YES for public-domain/no-known-restrictions content"
+    redistribution_permitted: "YES subject to LOC rights guidance"
+    attribution_required: "NO copyright attribution required; source citation recommended"
+    commercial_use_permitted: "YES where public domain/no known restrictions applies"
+    personal_data_concerns: "MEDIUM"
+    copyright_concerns: "LOW to MEDIUM"
+    benefit_for_nexa: "Historically diverse prose, later-stage candidate"
+    license_confidence: "MEDIUM"
+    scores:
+      license_clarity: 4
+      training_permission: 4
+      text_quality: 2
+      text_diversity: 5
+      language_suitability: 4
+      data_cleanliness: 1
+      reproducibility: 4
+      size_suitability: 2
+      total: 26
+    recommendation: "defer"
+
+  - id: stack_exchange_data_dump
+    dataset_name: "Stack Exchange Data Dump"
+    official_source: "Stack Exchange"
+    official_url: "https://stackoverflow.com/help/data-dumps"
+    download_url: "User/account-gated current dumps; historical mirrors exist"
+    version: "Quarterly/historical dumps"
+    license: "Mixed CC BY-SA versions by date and site"
+    license_url: "https://stackoverflow.com/help/licensing"
+    language: "Mostly English"
+    approximate_size: "Large; per-site archives vary"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Questions, answers, comments, code snippets"
+    known_limitations: "Current official dump access requires affirming no LLM-training intent; attribution/code-license complexity"
+    training_use_permitted: "NO for current official dump workflow"
+    redistribution_permitted: "YES under CC BY-SA for lawfully obtained content, with complex compliance"
+    attribution_required: "YES"
+    commercial_use_permitted: "CC BY-SA permits commercial use, but current access terms make it unsuitable"
+    personal_data_concerns: "MEDIUM"
+    copyright_concerns: "HIGH"
+    benefit_for_nexa: "Technical Q&A, but not suitable for V1"
+    license_confidence: "HIGH that it should be rejected for Nexa V1"
+    scores:
+      license_clarity: 2
+      training_permission: 0
+      text_quality: 4
+      text_diversity: 4
+      language_suitability: 5
+      data_cleanliness: 2
+      reproducibility: 2
+      size_suitability: 3
+      total: 22
+    recommendation: "rejected"
+
+  - id: the_pile
+    dataset_name: "The Pile"
+    official_source: "EleutherAI"
+    official_url: "https://github.com/EleutherAI/the-pile"
+    download_url: "Historical release locations vary"
+    version: "Released 2020-12-31"
+    license: "Mixed component datasets; some unclear or disputed"
+    license_url: "UNKNOWN"
+    language: "Mostly English"
+    approximate_size: "About 886 GB"
+    approximate_document_count: "UNKNOWN"
+    text_type: "Mixed web, books, papers, code, forums"
+    known_limitations: "Too large; mixed licensing; copyright concerns"
+    training_use_permitted: "LICENSE UNCERTAIN"
+    redistribution_permitted: "LICENSE UNCERTAIN"
+    attribution_required: "UNKNOWN"
+    commercial_use_permitted: "LICENSE UNCERTAIN"
+    personal_data_concerns: "MEDIUM to HIGH"
+    copyright_concerns: "HIGH"
+    benefit_for_nexa: "Large and diverse but unsuitable for license-safe V1"
+    license_confidence: "HIGH that it should be rejected for Nexa V1"
+    scores:
+      license_clarity: 1
+      training_permission: 1
+      text_quality: 3
+      text_diversity: 5
+      language_suitability: 5
+      data_cleanliness: 2
+      reproducibility: 2
+      size_suitability: 0
+      total: 19
+    recommendation: "rejected"
+recommended:
+  primary:
+    - "Standard Ebooks"
+  secondary:
+    - "Project Gutenberg"
+    - "Simple English Wikipedia"
+    - "BCcampus OpenEd Textbooks, after per-book CC BY verification"
+  optional_small_secondary:
+    - "Federal Register Bulk XML"
+target_dataset:
+  cleaned_size: "about 75 MB"
+  acceptable_range: "50-100 MB"
+  estimated_tokens: "about 15M tokens, rough range 12M-19M"
+  language_strategy: "English only for Nexa V1"
+  proposed_mix:
+    standard_ebooks: "45%"
+    project_gutenberg: "25%"
+    simple_english_wikipedia: "20%"
+    bccampus_cc_by_verified_textbooks: "10%"
+rejected_or_deferred:
+  - dataset_name: "Stack Exchange Data Dump"
+    reason: "Current official access requires no-LLM-training affirmation; attribution and code-license complexity"
+  - dataset_name: "The Pile"
+    reason: "Too large and mixed/uncertain licensing"
+  - dataset_name: "C4/Common Crawl-derived corpora"
+    reason: "Underlying web content licensing is unclear for Nexa's license-safety goal"
+  - dataset_name: "BookCorpus"
+    reason: "Copyright/license provenance unclear"
+  - dataset_name: "OpenWebText"
+    reason: "Underlying linked web pages do not provide sufficiently clear licensing"
+  - dataset_name: "OpenStax"
+    reason: "Current official license is NonCommercial ShareAlike; not future-proof for Nexa V1"
+  - dataset_name: "Chronicling America OCR"
+    reason: "OCR noise too high for first V1 dataset"
+  - dataset_name: "Caselaw Access Project"
+    reason: "Excellent CC0 license but too domain-specific and large for first V1"
