@@ -1,0 +1,86 @@
+# =============================================================================
+# Nexa Training Configuration
+# =============================================================================
+# Controls every aspect of the training loop: data, optimizer, scheduler,
+# checkpointing, and logging.
+# =============================================================================
+
+training:
+  # ---------------------------------------------------------------------------
+  # Data
+  # ---------------------------------------------------------------------------
+  train_data_path: "data/processed/train.jsonl"
+  val_data_path:   "data/processed/val.jsonl"
+
+  # ---------------------------------------------------------------------------
+  # Batching
+  # ---------------------------------------------------------------------------
+  # Concept: A "batch" is how many training examples we process before
+  # updating the model weights. Larger = more stable gradients, more memory.
+  #
+  # "Gradient accumulation" simulates a large batch on a small GPU:
+  # We do `grad_accum_steps` forward passes before each optimizer step.
+  # Effective batch size = batch_size × grad_accum_steps
+  # ---------------------------------------------------------------------------
+  batch_size: 16              # Examples per forward pass
+  grad_accum_steps: 4         # Accumulate gradients over N steps
+                              # → Effective batch size = 64
+
+  # ---------------------------------------------------------------------------
+  # Duration
+  # ---------------------------------------------------------------------------
+  max_steps: 100000           # Total optimizer steps (None = train until val loss stops improving)
+  max_epochs: null            # Alternatively, train for N full passes over data
+  eval_interval: 500          # Run validation every N steps
+  log_interval: 50            # Log training metrics every N steps
+
+  # ---------------------------------------------------------------------------
+  # Optimizer — AdamW
+  # ---------------------------------------------------------------------------
+  # AdamW is the standard optimizer for transformers.
+  # It's Adam with "weight decay" (L2 regularization) applied correctly
+  # (only to weight matrices, not bias / norm parameters).
+  # ---------------------------------------------------------------------------
+  optimizer: "adamw"
+  learning_rate: 3.0e-4       # Peak learning rate (3e-4 is a good starting point)
+  weight_decay: 0.1           # Regularization strength
+  beta1: 0.9                  # AdamW momentum — 1st moment (gradient)
+  beta2: 0.95                 # AdamW momentum — 2nd moment (squared gradient)
+  grad_clip: 1.0              # Gradient norm clipping (prevents exploding gradients)
+
+  # ---------------------------------------------------------------------------
+  # Learning Rate Scheduler
+  # ---------------------------------------------------------------------------
+  # We use a cosine decay schedule with a linear warmup.
+  # Warmup: LR ramps up from 0 → peak over `warmup_steps`
+  # Decay:  LR decays from peak → min_lr using a cosine curve
+  # This is the standard schedule for GPT-style training.
+  # ---------------------------------------------------------------------------
+  scheduler: "cosine_with_warmup"
+  warmup_steps: 2000          # Steps to linearly ramp up from 0 → learning_rate
+  min_lr: 3.0e-5              # Floor for cosine decay (typically 10% of peak LR)
+
+  # ---------------------------------------------------------------------------
+  # Mixed Precision
+  # ---------------------------------------------------------------------------
+  # Concept: By default, PyTorch uses 32-bit floats (float32).
+  # Mixed precision uses 16-bit floats (bfloat16 or float16) for most ops,
+  # cutting memory use in half and making training 2-3× faster on modern GPUs.
+  # ---------------------------------------------------------------------------
+  mixed_precision: "bf16"     # Options: "no" | "fp16" | "bf16"
+                              # bf16 is preferred on Ampere GPUs (RTX 30/40xx, A100)
+
+  # ---------------------------------------------------------------------------
+  # Checkpointing
+  # ---------------------------------------------------------------------------
+  checkpoint_dir: "checkpoints/"
+  save_interval: 1000         # Save a checkpoint every N steps
+  keep_last_n: 3              # Keep only the last N checkpoints (save disk space)
+  resume_from: null           # Path to a checkpoint to resume from (null = fresh start)
+
+  # ---------------------------------------------------------------------------
+  # Experiment Tracking
+  # ---------------------------------------------------------------------------
+  use_wandb: false            # Set to true to enable Weights & Biases logging
+  wandb_project: "nexa"
+  run_name: null              # null = auto-generated from timestamp

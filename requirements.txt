@@ -1,0 +1,77 @@
+# =============================================================================
+# Nexa — Python Dependencies
+# =============================================================================
+# Install with:  pip install -r requirements.txt
+# Or (editable):  pip install -e .
+#
+# Independence Rule
+# ------------------
+# Nexa uses NO pretrained AI model weights and NO external AI inference APIs.
+# Every library listed here is a development/utility library only.
+# Forbidden: OpenAI API, Anthropic API, Gemini API, LLaMA, Mistral, Whisper,
+#            Vosk, DeepSpeech, SpeechBrain, pretrained embeddings, pyttsx3,
+#            or any library that provides pretrained AI intelligence.
+#
+# Organized by phase so you know exactly what each dependency is for.
+# =============================================================================
+
+# --- Core ML Framework (Phase 3+) -------------------------------------------
+torch>=2.2.0                  # PyTorch — the only ML framework we use
+numpy>=1.26.0                 # Array operations, used everywhere
+
+# --- Numerical & Scientific Computing ----------------------------------------
+scipy>=1.13.0                 # Signal processing, FFT, linear algebra utilities
+
+# --- Data Loading (Phase 4+) -------------------------------------------------
+# HuggingFace `datasets` is a data-loading library (not a model).
+# It gives us convenient access to open-licensed text corpora (Wikipedia,
+# Project Gutenberg, etc.) without providing any pretrained AI intelligence.
+datasets>=2.18.0              # Load open-licensed text corpora for training
+tqdm>=4.66.0                  # Progress bars for training loops and data prep
+
+# --- Config & Serialization --------------------------------------------------
+pyyaml>=6.0.1                 # Load YAML config files
+omegaconf>=2.3.0              # Hierarchical config merging + CLI overrides
+dacite>=1.8.1                 # Deserialize dicts into typed Python dataclasses
+
+# --- Logging & Terminal UI ---------------------------------------------------
+rich>=13.7.0                  # Beautiful colored terminal output (no AI)
+
+# --- Training Utilities (Phase 4) -------------------------------------------
+# HuggingFace `accelerate` is a device-agnostic training helper (not a model).
+# It handles multi-GPU dispatch and mixed precision without pretrained weights.
+accelerate>=0.28.0            # Device-agnostic training (CPU / GPU / MPS)
+tensorboard>=2.16.0           # Training metric visualization
+
+# --- Model Serialization (Phase 3+) -----------------------------------------
+einops>=0.7.0                 # Readable tensor reshaping (used in attention)
+safetensors>=0.4.2            # Safe, fast serialization for Nexa's own weights
+
+# --- Memory System (Phase 7) ------------------------------------------------
+# FAISS is a vector similarity search library — it contains no pretrained
+# AI model and performs no AI inference. It just indexes and searches vectors.
+faiss-cpu>=1.8.0              # Vector similarity search (CPU build)
+# faiss-gpu>=1.8.0            # Uncomment if you have a CUDA-capable GPU
+
+# --- Speech (Future Research Phase) -----------------------------------------
+# Speech is a dedicated future research phase. Nexa will train its own
+# STT and TTS systems from scratch. No external speech engines will be used.
+# Dependencies will be determined when that research phase begins.
+# sounddevice, librosa, scipy (already above) will be used for raw audio I/O.
+
+# --- Web App & API (Phase 6) ------------------------------------------------
+fastapi>=0.110.0              # REST API server (standard web framework — no AI)
+uvicorn[standard]>=0.29.0    # ASGI server for FastAPI
+aiofiles>=23.0.0             # Async file I/O (required for FastAPI StaticFiles)
+python-multipart>=0.0.9      # Form data parsing for FastAPI
+httpx>=0.27.0                # Async HTTP client (for tool: web search)
+
+# --- Testing -----------------------------------------------------------------
+pytest>=8.1.0                 # Test runner
+pytest-cov>=5.0.0             # Coverage reports
+
+# --- Development Tools -------------------------------------------------------
+black>=24.3.0                 # Code formatter
+isort>=5.13.0                 # Import sorter
+mypy>=1.9.0                   # Static type checker
+pre-commit>=3.7.0             # Git hooks for auto-formatting

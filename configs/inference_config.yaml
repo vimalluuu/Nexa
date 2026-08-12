@@ -1,0 +1,60 @@
+# =============================================================================
+# Nexa Inference Configuration
+# =============================================================================
+# Controls how the model generates text at inference time.
+# These settings do NOT affect model weights — only the sampling strategy.
+# =============================================================================
+
+inference:
+  # ---------------------------------------------------------------------------
+  # Model Loading
+  # ---------------------------------------------------------------------------
+  checkpoint_path: "checkpoints/latest.pt"   # Which model weights to load
+  device: "auto"              # "auto" = GPU if available, else CPU
+                              # Options: "auto" | "cpu" | "cuda" | "mps"
+
+  # ---------------------------------------------------------------------------
+  # Sampling Strategy
+  # ---------------------------------------------------------------------------
+  # Concept: After the model produces a probability distribution over all
+  # vocabulary tokens, we need to CHOOSE the next token. How we do this
+  # dramatically changes the output character:
+  #
+  #   Greedy:    Always pick the highest-probability token. Deterministic
+  #              but repetitive and boring.
+  #   Top-K:     Sample only from the top K most likely tokens. Controls
+  #              "vocabulary" at each step.
+  #   Top-P:     Sample from the smallest set of tokens whose cumulative
+  #              probability exceeds P. Also called "nucleus sampling".
+  #   Temperature: Divide logits by T before softmax. T < 1 = sharper
+  #              (more confident), T > 1 = flatter (more random).
+  # ---------------------------------------------------------------------------
+  max_new_tokens: 512         # Maximum tokens to generate per response
+  temperature: 0.8            # Sampling temperature (1.0 = neutral)
+  top_k: 50                   # 0 = disabled; else sample from top K tokens
+  top_p: 0.95                 # 1.0 = disabled; else nucleus sampling threshold
+  repetition_penalty: 1.1     # > 1.0 penalizes recently used tokens
+                              # (reduces repetitive output)
+
+  # ---------------------------------------------------------------------------
+  # Special Tokens (must match tokenizer)
+  # ---------------------------------------------------------------------------
+  bos_token_id: 1             # Prepended to every prompt
+  eos_token_id: 2             # Model stops generating when it produces this
+  pad_token_id: 0
+
+  # ---------------------------------------------------------------------------
+  # KV Cache
+  # ---------------------------------------------------------------------------
+  # Concept: During generation, we re-use (cache) the Key and Value tensors
+  # from previous tokens instead of recomputing them. This makes generation
+  # O(n) instead of O(n²) in time — essential for long outputs.
+  # ---------------------------------------------------------------------------
+  use_kv_cache: true
+
+  # ---------------------------------------------------------------------------
+  # Chat Format
+  # ---------------------------------------------------------------------------
+  # How user/assistant turns are formatted before being fed to the model.
+  system_prompt: "You are Nexa, a helpful AI assistant."
+  chat_template: "### Human: {user}\n### Assistant:"

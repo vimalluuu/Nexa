@@ -1,0 +1,67 @@
+# =============================================================================
+# Nexa Model Configuration
+# =============================================================================
+# This file controls the Transformer architecture.
+# Every value here can be overridden via CLI (using OmegaConf).
+#
+# Concept: A language model is fully defined by these hyperparameters.
+# Changing them changes the model size, speed, and capacity.
+# =============================================================================
+
+model:
+  name: "nexa-small"          # Human-readable model name (used in checkpoints)
+  version: "0.1.0"
+
+  # ---------------------------------------------------------------------------
+  # Vocabulary & Tokenization
+  # ---------------------------------------------------------------------------
+  vocab_size: 32000           # Number of unique tokens the model knows
+                              # (must match tokenizer vocab size)
+  pad_token_id: 0             # ID used for padding shorter sequences
+  bos_token_id: 1             # Beginning-of-Sequence token ID
+  eos_token_id: 2             # End-of-Sequence token ID
+
+  # ---------------------------------------------------------------------------
+  # Context / Sequence Length
+  # ---------------------------------------------------------------------------
+  max_seq_len: 1024           # Maximum number of tokens the model can process
+                              # at once. Longer = more memory. Start small.
+
+  # ---------------------------------------------------------------------------
+  # Transformer Architecture
+  # ---------------------------------------------------------------------------
+  # These four values define 99% of what makes a model "big" or "small":
+  #
+  #   d_model      — the width: how many features each token has
+  #   n_heads      — how many attention heads (must divide d_model evenly)
+  #   n_layers     — how many transformer blocks stacked
+  #   d_ff         — the inner dimension of the feed-forward network
+  #                  (typically 4 × d_model)
+  #
+  # Nexa-Small: ~50M parameters (good for training on a laptop/single GPU)
+  # ---------------------------------------------------------------------------
+  d_model: 512                # Embedding / hidden dimension
+  n_heads: 8                  # Number of attention heads
+  n_layers: 6                 # Number of transformer decoder blocks
+  d_ff: 2048                  # Feed-forward network inner dimension (4 × d_model)
+
+  # ---------------------------------------------------------------------------
+  # Regularization
+  # ---------------------------------------------------------------------------
+  dropout: 0.1                # Dropout probability (0 = no dropout)
+                              # Applied in attention and feed-forward layers
+
+  # ---------------------------------------------------------------------------
+  # Normalization
+  # ---------------------------------------------------------------------------
+  norm_type: "rmsnorm"        # Options: "layernorm" | "rmsnorm"
+                              # RMSNorm omits the mean subtraction step — slightly
+                              # faster and equally effective as LayerNorm in practice
+  norm_eps: 1.0e-6            # Small epsilon to avoid division by zero
+
+  # ---------------------------------------------------------------------------
+  # Positional Encoding
+  # ---------------------------------------------------------------------------
+  pos_encoding: "rotary"      # Options: "sinusoidal" | "learned" | "rotary"
+                              # Rotary (RoPE) encodes position via rotation matrices
+                              # applied to Q and K — works well for long contexts

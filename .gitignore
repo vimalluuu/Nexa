@@ -1,0 +1,70 @@
+# =============================================================================
+# Nexa .gitignore
+# =============================================================================
+
+# --- Python bytecode ---------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# --- Virtual environments ----------------------------------------------------
+.venv/
+venv/
+env/
+.env
+
+# --- Distribution / packaging ------------------------------------------------
+dist/
+build/
+*.egg-info/
+*.egg
+
+# --- ML artifacts (large files — store in cloud, not git) --------------------
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+
+# --- Data (raw datasets can be gigabytes) ------------------------------------
+data/raw/
+data/processed/
+data/memories.json
+
+# --- Logs --------------------------------------------------------------------
+logs/
+*.log
+
+# --- Jupyter Notebooks (use scripts instead) ---------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# --- WandB -------------------------------------------------------------------
+wandb/
+
+# --- IDEs --------------------------------------------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- OS files ----------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- TensorBoard -------------------------------------------------------------
+runs/
+
+# --- Testing -----------------------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# --- Sensitive configs (API keys, secrets) -----------------------------------
+.env.local
+secrets.yaml

@@ -1,0 +1,67 @@
+# =============================================================================
+# pyproject.toml — Modern Python project configuration
+# =============================================================================
+# This file centralises tool configuration (black, isort, mypy, pytest)
+# so each tool doesn't need its own separate config file.
+# =============================================================================
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# =============================================================================
+# Black — code formatter
+# =============================================================================
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+# =============================================================================
+# isort — import sorter
+# Compatible with black (uses the "black" profile).
+# =============================================================================
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["nexa"]
+
+# =============================================================================
+# mypy — static type checker
+# =============================================================================
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true      # Some ML libs lack stubs
+
+# =============================================================================
+# pytest — test runner
+# =============================================================================
+[tool.pytest.ini_options]
+# Run tests from the project root so relative paths (configs/) work correctly.
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+log_cli = true
+log_cli_level = "WARNING"          # Suppress INFO logs during tests
+
+# =============================================================================
+# Coverage (pytest-cov)
+# =============================================================================
+[tool.coverage.run]
+source = ["nexa"]
+omit = ["tests/*", "scripts/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 0                     # Set to 80+ once the codebase matures
