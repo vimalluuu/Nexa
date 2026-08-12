@@ -22,18 +22,19 @@
 
 ## Vision
 
-Nexa is a learning-first, production-ready AI system that teaches the internals of modern
-language models by building them from first principles. By the time Nexa is complete, you will
+Nexa is an independent research and learning AI system that teaches the internals of modern
+language models by building them from first principles. It is intentionally not production-grade or comparable to massive commercial systems like ChatGPT or Claude. By the time Nexa is complete, you will
 have built and understood:
 
-- A **Byte-Pair Encoding (BPE) tokenizer** — the same class of tokenizer used by GPT-4
-- A **decoder-only Transformer** — the architecture behind every major LLM
+- A **Byte-Pair Encoding (BPE) tokenizer** — built from scratch
+- A **decoder-only Transformer** — the fundamental architecture behind modern LLMs
 - A **training loop** with gradient descent, mixed precision, and checkpointing
 - A **text generation engine** with sampling strategies (top-k, top-p, temperature)
-- A **chat interface** via Gradio + FastAPI
-- A **memory system** combining sliding window context and FAISS vector search
-- **Speech I/O** via Whisper (STT) and pyttsx3 (TTS)
-- **Optimization** via quantization and ONNX export
+- A **chat interface** via FastAPI and vanilla web technologies
+- A **memory system** combining sliding window context and TF-IDF vector search
+- **Scalable Pretraining** — dataset engineering, distributed training, and reproducibility
+
+**Note on Speech Systems:** Nexa will NOT use Whisper, Vosk, DeepSpeech, pyttsx3, or any other pretrained/external speech intelligence. Speech is deferred to a future independent research phase where Nexa's own speech systems may be studied and trained from scratch.
 
 ---
 
@@ -48,7 +49,20 @@ have built and understood:
 | 5 | ✅ Complete | Inference |
 | 6 | ✅ Complete | Local Chat UI |
 | 7 | ✅ Complete | Memory |
-| 8 | ⬜ Not Started | Speech & Optimization |
+| 8 | ⬜ Not Started | Pretraining v1 — Dataset Engineering & Model Scaling |
+
+### Next Phase: Pretraining v1
+Phase 8 will focus on:
+- Identifying legally usable training datasets
+- Dataset cleaning and deduplication
+- Train/validation splitting
+- Tokenizer retraining on the real corpus
+- Model scaling from the current tiny research model
+- Longer-context experiments
+- Scalable pretraining infrastructure
+- Training and evaluation metrics
+- Checkpointing and reproducibility
+
 
 ---
 
@@ -81,6 +95,16 @@ python -c "from nexa.utils import load_config; cfg = load_config('configs/model_
 
 ---
 
+## Current Model
+
+- **Parameters**: Approximately 803K parameters
+- **Vocabulary Size**: 124 tokens for the current toy model
+- **Origin**: Trained entirely from scratch
+- **Training Data**: Current training corpus is a small demonstration corpus
+- **Capability**: Generated text quality is intentionally limited at this stage as it serves only to prove the architecture works.
+
+---
+
 ## Project Structure
 
 ```
@@ -93,9 +117,9 @@ nexa/
 │   ├── models/       # Transformer model (Phase 3)
 │   ├── training/     # Training loop (Phase 4)
 │   ├── inference/    # Text generation (Phase 5)
-│   ├── memory/       # Memory system (Phase 7)
-│   ├── tools/        # Tool use (web, calculator)
-│   ├── speech/       # STT + TTS (Phase 8)
+│   ├── memory/       # TF-IDF Memory system (Phase 7)
+│   ├── tools/        # Tool use
+│   ├── speech/       # Deferred to future independent research
 │   ├── app/          # Chat UI + REST API (Phase 6)
 │   └── utils/        # Shared utilities (logger, config)
 ├── tests/            # Unit and integration tests
@@ -111,6 +135,7 @@ nexa/
 - **Understand first, optimize later** — every component has a concept explanation before code
 - **No magic** — we avoid abstractions we don't understand
 - **Modular** — each sub-package is independent and testable
+- **Independent AI** — no pretrained AI intelligence is allowed
 - **One dependency rule** — if it can be built in <100 lines, we build it
 
 ---
