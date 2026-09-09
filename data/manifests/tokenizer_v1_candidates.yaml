@@ -1,0 +1,80 @@
+phase: '8.5'
+generated: '2026-09-09T22:46:09.588060+00:00'
+training_approach: Nexa's own BPE tokenizer (nexa.tokenizer.tokenizer.NexaTokenizer)
+  trained from scratch on a 2M-word sample from the Phase 8 pilot corpus. No pretrained
+  tokenizer used.
+training_sample_words: 2000000
+min_frequency: 3
+measurement_corpus: Full pilot corpus (9,182,235 words, 2,257 docs)
+recommended: 2048
+candidates:
+- vocab_size: 2048
+  actual_vocab_size: 2048
+  num_merges: 1245
+  training_time_s: 782.0
+  total_tokens: 20897853
+  tokens_per_word: 2.2759
+  tokens_per_char: 0.3761
+  compression_ratio: 2.6591
+  unk_rate: 4.9e-05
+  coverage_pct: 100.0
+  p90_seq_len: 15274
+  p95_seq_len: 20730
+  p99_seq_len: 38676
+  est_storage_mb_int32: 83.6
+- vocab_size: 4096
+  actual_vocab_size: 4096
+  num_merges: 3293
+  training_time_s: 1494.2
+  total_tokens: 17509859
+  tokens_per_word: 1.9069
+  tokens_per_char: 0.3151
+  compression_ratio: 3.1737
+  unk_rate: 5.9e-05
+  coverage_pct: 100.0
+  p90_seq_len: 12463
+  p95_seq_len: 17118
+  p99_seq_len: 32588
+  est_storage_mb_int32: 70.0
+- vocab_size: 8192
+  actual_vocab_size: 8192
+  num_merges: 7389
+  training_time_s: 2979.5
+  total_tokens: 15131476
+  tokens_per_word: 1.6479
+  tokens_per_char: 0.2723
+  compression_ratio: 3.6725
+  unk_rate: 6.8e-05
+  coverage_pct: 100.0
+  p90_seq_len: 10654
+  p95_seq_len: 14570
+  p99_seq_len: 28107
+  est_storage_mb_int32: 60.5
+- vocab_size: 16384
+  actual_vocab_size: 16384
+  num_merges: 15581
+  training_time_s: 5582.9
+  total_tokens: 13375736
+  tokens_per_word: 1.4567
+  tokens_per_char: 0.2407
+  compression_ratio: 4.1546
+  unk_rate: 7.7e-05
+  coverage_pct: 100.0
+  p90_seq_len: 9308
+  p95_seq_len: 12644
+  p99_seq_len: 24789
+  est_storage_mb_int32: 53.5
+- vocab_size: 32768
+  actual_vocab_size: 32768
+  num_merges: 31965
+  training_time_s: 10959.7
+  total_tokens: 12134112
+  tokens_per_word: 1.3215
+  tokens_per_char: 0.2184
+  compression_ratio: 4.5797
+  unk_rate: 8.5e-05
+  coverage_pct: 100.0
+  p90_seq_len: 8343
+  p95_seq_len: 11508
+  p99_seq_len: 22247
+  est_storage_mb_int32: 48.5
