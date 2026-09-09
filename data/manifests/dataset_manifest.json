@@ -1,0 +1,271 @@
+{
+  "generated": "2026-09-09T15:33:34.297376+00:00",
+  "phase": "8.2D",
+  "note": "Dataset payloads are NOT tracked by git. This manifest records metadata and checksums only.",
+  "datasets": [
+    {
+      "dataset_name": "Wikimedia Wikipedia English (shard 1)",
+      "source": "Wikimedia Foundation / Wikipedia contributors",
+      "official_url": "https://dumps.wikimedia.org/enwiki/",
+      "version": "enwiki snapshot 20260901",
+      "snapshot": "20260901",
+      "license": "CC BY-SA 4.0 / GFDL",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "language": "English",
+      "selection_method": "Single shard (shard 1) of the enwiki-20260901 dump. Page IDs p1-p41242. Covers ~41,000 articles with the lowest-numbered page IDs (earliest/core encyclopedic content). Deterministic: fixed snapshot + fixed page ID range.",
+      "download_date": "2026-09-09",
+      "phase": "8.2D",
+      "files": [
+        {
+          "filename": "enwiki-20260901-pages-articles1.xml-p1p41242.bz2",
+          "dataset": "Wikimedia Wikipedia English (shard 1)",
+          "source_url": "https://dumps.wikimedia.org/enwiki/20260901/enwiki-20260901-pages-articles1.xml-p1p41242.bz2",
+          "size_bytes": 299035206,
+          "sha256": "eae50cdc096f5ab450ed00c25881a9c9619778eebe01f5c6a37a71b02af71915",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        }
+      ]
+    },
+    {
+      "dataset_name": "PG-19 (selected subset)",
+      "source": "Google DeepMind PG-19 / Project Gutenberg",
+      "official_url": "https://github.com/google-deepmind/pg19",
+      "version": "PG-19 train split, sorted by book_id ascending",
+      "snapshot": "PG-19 as of metadata.csv commit (accessed 2026-09-09)",
+      "license": "Repository: Apache-2.0 (metadata, scripts). Texts: Project Gutenberg works published before 1919; generally U.S. public domain per PG license policy.",
+      "license_url": "https://www.gutenberg.org/policy/license.html",
+      "language": "English",
+      "selection_method": "First N books by book_id ascending from the PG-19 train split. Only books with verified pre-1919 publication date are downloaded. Books where publication year cannot be parsed are skipped.",
+      "download_date": "2026-09-09",
+      "phase": "8.2D",
+      "files": [
+        {
+          "filename": "10.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/10.txt",
+          "size_bytes": 4432484,
+          "sha256": "abd4550f2944901996a464fbe12b10e8ce32957af98e8c919fd029f14d2b3250",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "11.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/11.txt",
+          "size_bytes": 147885,
+          "sha256": "7d691d0548851863c15510dd166520aa7bdbcb610994e50423fa96361ab2f542",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "12.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/12.txt",
+          "size_bytes": 166252,
+          "sha256": "e5e6c88ada13717b5f4dec7f64762d7ed5151fd1151501733d1b50a2ac58c996",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "13.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/13.txt",
+          "size_bytes": 33568,
+          "sha256": "f615c7f3bcc130185b72c13ad86aad669e6b132e5c00dda036a3a7b8faa59c98",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "15.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/15.txt",
+          "size_bytes": 11802,
+          "sha256": "8bf4b91be22cc05bac4d127f38f2513184028fd65db87d6254d06cafd6355299",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "17.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/17.txt",
+          "size_bytes": 1575740,
+          "sha256": "5dd7536a3599954a182b80d09db971ad85105858a7e677ee2a6dac93c3526013",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "18.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/18.txt",
+          "size_bytes": 1193356,
+          "sha256": "1421b0c9e21352ebdf3ca93ed43a59d05b34c3d5d37d993669fa9eeb2ea93407",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "19.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/19.txt",
+          "size_bytes": 194703,
+          "sha256": "efec526217171244db329f5751f02e7c82c8c1e925145a4458c6ab35d928d6f7",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "20.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/20.txt",
+          "size_bytes": 487542,
+          "sha256": "62d7bf2ebe07c761844f7762b9562e31153b4a2f0c804815fbdc8c270714318d",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "23.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/23.txt",
+          "size_bytes": 228677,
+          "sha256": "9dd9cb6bc9d482db543514ea5e87cad2c6bec1efc10ab83939aa29fdecc7510a",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "24.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/24.txt",
+          "size_bytes": 304749,
+          "sha256": "2b4cceebd9e104a07baca00a5b513de7f0297a4dd9d510e51b2658f1ca202563",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "26.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/26.txt",
+          "size_bytes": 470892,
+          "sha256": "ff019076ef4b2544e75284e64d275a2760c4d76a51ecdeb8a2fdd38a88c873d6",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "30.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/30.txt",
+          "size_bytes": 5199063,
+          "sha256": "466cada62dedf3f89b0d3a74417f2f175b3da600e30cb2749aa24e241e01270b",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "31.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/31.txt",
+          "size_bytes": 222010,
+          "sha256": "451fce18b3c8550c17ff8a57cbc5247418f7697fb182784739da399bc512c1bc",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "32.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/32.txt",
+          "size_bytes": 303039,
+          "sha256": "12a7d32d237a78a3986dfc4ceadfcb830934f06da03a63b50e96784049031d91",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "33.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/33.txt",
+          "size_bytes": 496758,
+          "sha256": "36cbeaa8652cee8f77b006daf9c1cfdd360fbc119c52e568e68c8d01d3d878b7",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "35.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/35.txt",
+          "size_bytes": 182318,
+          "sha256": "ac75cc55ae9941cd47680e440a291da1e9829f20b59fbe9b348d43be170e13aa",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "36.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/36.txt",
+          "size_bytes": 345795,
+          "sha256": "fee717f1fb240a2892f83f5f774ccdb335dd69f5636807577522f005dc579f71",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "41.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/41.txt",
+          "size_bytes": 71049,
+          "sha256": "838c9a553174df3da51c2f9ca8ecca8ae256149c551f7973202f46130eaf7018",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "42.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/42.txt",
+          "size_bytes": 143355,
+          "sha256": "2f61379482520cedc6bd93603a8b9b9e12a8d9d6e37c5fcce8c8d54812af973a",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "43.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/43.txt",
+          "size_bytes": 141239,
+          "sha256": "8ff5a993beea4f88562ace0178b921876d667a8ea76bccbd5ce06233c99c2861",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "44.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/44.txt",
+          "size_bytes": 845757,
+          "sha256": "70910fe78b412fe698cf2c8c96ed6a452af7ec87fcce1d4e41cedecd94a217d8",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "45.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/45.txt",
+          "size_bytes": 571805,
+          "sha256": "a5eef3b95db15e0c28967af215bf952bc1f65a3974f3b2358672951a2bb9d2c5",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "46.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/46.txt",
+          "size_bytes": 162393,
+          "sha256": "2fabb25f0c4a959992402db9259d521aa70a595127137d9097ebe0bf4c37f9fe",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        },
+        {
+          "filename": "47.txt",
+          "dataset": "PG-19 (selected subset)",
+          "source_url": "https://storage.googleapis.com/deepmind-gutenberg/train/47.txt",
+          "size_bytes": 497961,
+          "sha256": "e993a88ce829f9120c907182e3c20c5cc6d1f09ba99107287238f79faaf4d630",
+          "download_date": "2026-09-09",
+          "verify_status": "OK"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,564 @@
+research:
+  title: "Nexa V1 Large Dataset Research"
+  checked_on: "2026-09-09"
+  scope: "research_only"
+  no_dataset_downloaded: true
+  no_preprocessing_started: true
+  no_tokenizer_change: true
+  no_model_change: true
+  no_training_started: true
+  no_commit_created: true
+  observed_repository:
+    checked_out_head: "adc7e73"
+    user_supplied_checkpoint: "caca4cc"
+    note: "The observed checked-out HEAD differs from the checkpoint named in the research brief."
+  independence_gate:
+    forbidden:
+      - "pretrained model weights"
+      - "pretrained tokenizers"
+      - "pretrained embeddings"
+      - "external LLM APIs"
+      - "intentionally AI-generated training data"
+    allowed_in_principle:
+      - "appropriately licensed existing text datasets"
+    license_rule: "A dataset/repository license does not itself clear rights in every source document."
+
+hardware:
+  cpu:
+    name: "AMD Ryzen 5 5600G with Radeon Graphics"
+    physical_cores: 6
+    logical_processors: 12
+    reported_max_clock_mhz: 3901
+  ram:
+    total_gib: 15.37
+  gpu:
+    name: "AMD Radeon(TM) Graphics"
+    reported_dedicated_memory_gib: 0.5
+    note: "Windows-reported integrated graphics; not a practical dedicated training GPU."
+  pytorch:
+    version: "2.13.0+cpu"
+    cuda_available: false
+    cuda_version: null
+    cuda_device_count: 0
+  disk:
+    workspace_drive: "F:"
+    workspace_free_gib: 336.78
+    system_drive: "C:"
+    system_free_gib: 3.36
+    note: "Future data caches and temporary artifacts must be placed on F:."
+
+scoring:
+  scale:
+    minimum: 0
+    maximum: 5
+    dimensions:
+      - "license_clarity"
+      - "training_use_clarity"
+      - "text_quality"
+      - "text_diversity"
+      - "provenance_clarity"
+      - "reproducibility"
+      - "size_suitability"
+      - "current_hardware_suitability"
+  meaning:
+    "5": "Strong fit with clear evidence and practical current use."
+    "4": "Good fit with manageable obligations."
+    "3": "Usable only with meaningful caveats or extra review."
+    "2": "Major uncertainty or poor Phase 8.2C fit."
+    "1": "Material blocker."
+    "0": "Not usable for the stated Nexa V1 constraints."
+
+candidate_scales:
+  assumptions:
+    raw_selected_source_gib_per_billion_tokens: "2-4"
+    cleaned_utf8_gib_per_billion_tokens: "4-5"
+    token_ids_plus_index_gib_per_billion_tokens: "2-3 using uint16 IDs"
+    peak_workspace_gib_per_billion_tokens: "11-17"
+    caveat: "These are selected-subset storage estimates, not full-corpus storage or measured training times."
+  options:
+    - target_tokens: 10000000
+      raw_selected_source_gib: "0.03-0.08"
+      cleaned_text_gib: "0.04-0.05"
+      token_ids_plus_index_gib: "0.02-0.03"
+      peak_workspace_gib: "0.11-0.17"
+      feasibility: "Recommended first data/training pipeline pilot."
+    - target_tokens: 50000000
+      raw_selected_source_gib: "0.10-0.20"
+      cleaned_text_gib: "0.20-0.25"
+      token_ids_plus_index_gib: "0.10-0.15"
+      peak_workspace_gib: "0.55-0.85"
+      feasibility: "Storage feasible; CPU-only training must first be benchmarked at 10M."
+    - target_tokens: 100000000
+      raw_selected_source_gib: "0.20-0.40"
+      cleaned_text_gib: "0.40-0.50"
+      token_ids_plus_index_gib: "0.20-0.30"
+      peak_workspace_gib: "1.1-1.7"
+      feasibility: "Defer until measured throughput and memory are available."
+    - target_tokens: 500000000
+      raw_selected_source_gib: "1-2"
+      cleaned_text_gib: "2-2.5"
+      token_ids_plus_index_gib: "1-1.5"
+      peak_workspace_gib: "5.5-8.5"
+      feasibility: "Disk may fit a selected subset; current CPU-only training is not a next experiment."
+    - target_tokens: 1000000000
+      raw_selected_source_gib: "2-4"
+      cleaned_text_gib: "4-5"
+      token_ids_plus_index_gib: "2-3"
+      peak_workspace_gib: "11-17"
+      feasibility: "Defer pending suitable GPU and staged throughput evidence."
+
+candidates:
+  - id: fineweb
+    name: "FineWeb"
+    official_source: "Hugging Face FineWeb"
+    official_url: "https://huggingface.co/datasets/HuggingFaceFW/fineweb"
+    version_or_date: "Dataset card checked 2026-09-09"
+    license: "ODC-By 1.0 for dataset; Common Crawl Terms of Use also apply"
+    license_url: "https://opendatacommons.org/licenses/by/1-0/"
+    source_terms_url: "https://commoncrawl.org/terms-of-use"
+    approximate_size: "More than 18.5T provider-reported tokens; multi-terabyte full release"
+    language: "English"
+    source_composition: "Cleaned/deduplicated Common Crawl webpages since 2013"
+    provenance: "Crawl lineage and processing code are documented"
+    intended_use: "Pretraining data"
+    quality: "Main-text extraction, URL/heuristic filters, per-crawl deduplication; toxic content and web bias remain"
+    duplicate_status: "Deduplicated per crawl, not globally"
+    code_proportion: "Not prevalent according to card"
+    synthetic_status: "UNKNOWN; broad modern web crawl cannot certify human authorship"
+    license_caveat: "ODC-By does not prove ownership of third-party webpage content; Common Crawl terms shift source-rights/AI risk to user"
+    recommendation: "conditional_defer"
+    scores:
+      license_clarity: 3
+      training_use_clarity: 2
+      text_quality: 4
+      text_diversity: 4
+      provenance_clarity: 4
+      reproducibility: 5
+      size_suitability: 5
+      current_hardware_suitability: 4
+      total: 31
+
+  - id: dolma_v1_7
+    name: "Dolma v1.7"
+    official_source: "Allen Institute for AI"
+    official_url: "https://github.com/allenai/dolma"
+    dataset_url: "https://huggingface.co/datasets/allenai/dolma"
+    license: "ODC-By for dataset; Apache-2.0 applies to repository/toolkit code"
+    license_url: "https://opendatacommons.org/licenses/by/1-0/"
+    approximate_size: "About 2.3T tokens for v1.7 comparison mixture; general Dolma documentation describes 3T tokens"
+    language: "Primarily English sources; exact source mix varies"
+    source_composition: "Web, academic publications, code, books, encyclopedic and other source-specific components"
+    provenance: "Source-based mixture with documented toolkit"
+    intended_use: "Pretraining data"
+    quality: "Source-specific filtering and Bloom-filter deduplication tooling"
+    duplicate_status: "Toolkit supports document deduplication; selected release varies by component"
+    code_proportion: "Present"
+    synthetic_status: "UNKNOWN; v1.7 includes FLAN instruction material and complete compliance evidence was not established"
+    license_caveat: "Mixed source rights are not cleared by ODC-By"
+    recommendation: "defer"
+    scores:
+      license_clarity: 3
+      training_use_clarity: 2
+      text_quality: 4
+      text_diversity: 5
+      provenance_clarity: 4
+      reproducibility: 5
+      size_suitability: 5
+      current_hardware_suitability: 4
+      total: 32
+
+  - id: redpajama_v2
+    name: "RedPajama-Data-v2"
+    official_source: "Together Computer"
+    official_url: "https://github.com/togethercomputer/RedPajama-Data"
+    license: "Apache-2.0 for repository code; dataset users directed to Common Crawl Terms of Use"
+    license_url: "https://www.apache.org/licenses/LICENSE-2.0"
+    source_terms_url: "https://commoncrawl.org/terms-of-use"
+    approximate_size: "30.4T deduplicated head-middle tokens; English portion 20.5T"
+    language: "English, German, French, Spanish, Italian"
+    source_composition: "84 Common Crawl snapshots processed with CCNet"
+    provenance: "Over 100B documents; quality signals on 30B and deduplication information on 20B"
+    intended_use: "Pretraining data"
+    quality: "Quality and MinHash signals available; final safe slice is not preselected"
+    duplicate_status: "Deduplicated subset and MinHash metadata supplied"
+    code_proportion: "UNKNOWN"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Common Crawl content rights remain source-specific"
+    recommendation: "defer"
+    scores:
+      license_clarity: 2
+      training_use_clarity: 2
+      text_quality: 3
+      text_diversity: 4
+      provenance_clarity: 4
+      reproducibility: 5
+      size_suitability: 4
+      current_hardware_suitability: 4
+      total: 28
+
+  - id: the_pile
+    name: "The Pile"
+    official_source: "EleutherAI"
+    official_url: "https://github.com/EleutherAI/the-pile"
+    license: "Mixed component licenses; corpus-wide content license UNKNOWN"
+    license_url: "UNKNOWN"
+    approximate_size: "About 825 GiB; corpus-wide canonical provider token count UNKNOWN"
+    language: "Initially English-focused"
+    source_composition: "22 sources across web, books, papers, code, forums, legal/government and reference text"
+    provenance: "Component table is documented, but rights differ per component"
+    intended_use: "Pretraining data"
+    quality: "Diverse but uneven by component"
+    duplicate_status: "Varies by component"
+    code_proportion: "Material"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Includes unsuitable/unclear components such as Books3"
+    recommendation: "rejected"
+    scores:
+      license_clarity: 1
+      training_use_clarity: 1
+      text_quality: 3
+      text_diversity: 5
+      provenance_clarity: 2
+      reproducibility: 3
+      size_suitability: 3
+      current_hardware_suitability: 1
+      total: 19
+
+  - id: c4_english
+    name: "C4 English"
+    official_source: "Allen Institute for AI"
+    official_url: "https://huggingface.co/datasets/allenai/c4"
+    license: "ODC-By; Common Crawl Terms of Use also apply"
+    license_url: "https://opendatacommons.org/licenses/by/1-0/"
+    source_terms_url: "https://commoncrawl.org/terms-of-use"
+    approximate_size: "305 GB English configuration; about 156B tokens reported in original paper"
+    language: "English"
+    source_composition: "Filtered Common Crawl text"
+    provenance: "URL, timestamp and text fields; source processing code documented"
+    intended_use: "Pretraining language models"
+    quality: "Language/boilerplate heuristics and deduplication; bad-word filtering is a known limitation"
+    duplicate_status: "Extensive deduplication documented"
+    code_proportion: "UNKNOWN"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Common Crawl rights and terms remain material"
+    recommendation: "defer"
+    scores:
+      license_clarity: 3
+      training_use_clarity: 2
+      text_quality: 3
+      text_diversity: 3
+      provenance_clarity: 4
+      reproducibility: 5
+      size_suitability: 5
+      current_hardware_suitability: 4
+      total: 29
+
+  - id: slimpajama_627b
+    name: "SlimPajama-627B"
+    official_source: "Cerebras"
+    official_url: "https://huggingface.co/datasets/cerebras/SlimPajama-627B"
+    license: "Component-dependent; users must follow licenses of selected source subsets"
+    license_url: "https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama"
+    approximate_size: "627B tokens; documented split about 883 GB compressed"
+    language: "English"
+    source_composition: "Cleaned/deduplicated RedPajama mixture: Common Crawl, C4, GitHub, books, arXiv, Wikipedia and StackExchange-derived material"
+    provenance: "Source labels available but source rights differ"
+    intended_use: "Pretraining data"
+    quality: "Cleaning and deduplication are strengths"
+    duplicate_status: "Cleaned and deduplicated"
+    code_proportion: "Present through GitHub component"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "No single license or permission covers all content"
+    recommendation: "defer"
+    scores:
+      license_clarity: 2
+      training_use_clarity: 2
+      text_quality: 4
+      text_diversity: 4
+      provenance_clarity: 3
+      reproducibility: 4
+      size_suitability: 4
+      current_hardware_suitability: 3
+      total: 26
+
+  - id: refinedweb
+    name: "RefinedWeb public extract"
+    official_source: "Technology Innovation Institute"
+    official_url: "https://proceedings.neurips.cc/paper_files/paper/2023/file/fa3ed726cc5073b9c31e3e49a807789c-Supplemental-Datasets_and_Benchmarks.pdf"
+    license: "ODC-By 1.0 plus Common Crawl Terms of Use"
+    license_url: "https://opendatacommons.org/licenses/by/1-0/"
+    source_terms_url: "https://commoncrawl.org/terms-of-use"
+    approximate_size: "5T full tokens; 600B-token public extract"
+    language: "English"
+    source_composition: "Common Crawl pages through June 2023"
+    provenance: "URL and crawl-origin metadata"
+    intended_use: "Pretraining data"
+    quality: "Heuristic filtering, adult URL filtering, language identification and exact/fuzzy/substring deduplication"
+    duplicate_status: "Strict exact and fuzzy deduplication documented"
+    code_proportion: "UNKNOWN"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Common Crawl content risks remain despite excellent datasheet"
+    recommendation: "defer"
+    scores:
+      license_clarity: 3
+      training_use_clarity: 2
+      text_quality: 4
+      text_diversity: 3
+      provenance_clarity: 4
+      reproducibility: 4
+      size_suitability: 4
+      current_hardware_suitability: 3
+      total: 27
+
+  - id: oscar_2301
+    name: "OSCAR 23.01"
+    official_source: "OSCAR Project"
+    official_url: "https://huggingface.co/datasets/oscar-corpus/OSCAR-2301"
+    license: "CC0 applies to packaging, metadata and annotations; project says it does not own crawled text"
+    license_url: "https://creativecommons.org/publicdomain/zero/1.0/"
+    approximate_size: "3.57 TB; corpus-wide token count UNKNOWN"
+    language: "More than 150 languages"
+    source_composition: "Common Crawl WET text"
+    provenance: "Document-oriented corpus with web provenance"
+    intended_use: "Language-model pretraining"
+    quality: "Original and deduplicated forms; quality varies and sensitive data may be present"
+    duplicate_status: "Deduplicated variants available"
+    code_proportion: "UNKNOWN"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Content ownership disclaimed; access status is gated/suspended"
+    recommendation: "rejected"
+    scores:
+      license_clarity: 1
+      training_use_clarity: 1
+      text_quality: 2
+      text_diversity: 4
+      provenance_clarity: 3
+      reproducibility: 2
+      size_suitability: 3
+      current_hardware_suitability: 3
+      total: 19
+
+  - id: roots
+    name: "BigScience ROOTS"
+    official_source: "BigScience"
+    official_url: "https://papers.nips.cc/paper_files/paper/2022/file/ce9e92e3de2372a4b93353eb7f3dc0bd-Paper-Datasets_and_Benchmarks.pdf"
+    license: "Constituent-source governance; preliminary release gated by ethical charter"
+    license_url: "https://hf.co/spaces/bigscience/ethical-charter"
+    approximate_size: "1.6 TB; corpus-wide token count UNKNOWN in this review"
+    language: "59 languages, including 46 natural and 13 programming languages"
+    source_composition: "62% community-selected sources; 38% OSCAR-derived text"
+    provenance: "498 constituent datasets and documented governance"
+    intended_use: "Multilingual pretraining research"
+    quality: "Human source selection, cleaning, and cross-pipeline deduplication"
+    duplicate_status: "Cross-pipeline deduplication documented"
+    code_proportion: "Material"
+    synthetic_status: "UNKNOWN"
+    license_caveat: "Source-by-source constraints and gated release"
+    recommendation: "defer"
+    scores:
+      license_clarity: 3
+      training_use_clarity: 2
+      text_quality: 4
+      text_diversity: 5
+      provenance_clarity: 4
+      reproducibility: 3
+      size_suitability: 3
+      current_hardware_suitability: 2
+      total: 26
+
+  - id: wikimedia_wikipedia_english
+    name: "Wikimedia Wikipedia English"
+    official_source: "Wikimedia"
+    official_url: "https://huggingface.co/datasets/wikimedia/wikipedia"
+    source_dump_url: "https://dumps.wikimedia.org/"
+    license: "CC BY-SA and GFDL; processed dataset card identifies CC BY-SA 3.0/GFDL"
+    license_url: "https://dumps.wikimedia.org/legal.html"
+    approximate_size: "6.4M cleaned English articles in 2023-11-01 configuration; multi-billion-token supply; exact Nexa BPE count UNKNOWN"
+    language: "English"
+    source_composition: "Official Wikimedia dumps; one cleaned article per record"
+    provenance: "Article ID, title, URL, dump version and contributor history ecosystem"
+    intended_use: "Language modeling and related text tasks"
+    quality: "Coherent encyclopedic prose; article-quality and editorial-bias variation"
+    duplicate_status: "Not a web-crawl duplicate corpus; future selected subset still needs local duplicate checks"
+    code_proportion: "Low"
+    synthetic_status: "Not packaged as AI-generated data; document-level zero-AI certification UNKNOWN"
+    license_caveat: "Attribution/share-alike duties must be preserved; treatment of model weights/outputs requires legal review"
+    recommendation: "primary"
+    scores:
+      license_clarity: 5
+      training_use_clarity: 4
+      text_quality: 4
+      text_diversity: 3
+      provenance_clarity: 5
+      reproducibility: 5
+      size_suitability: 5
+      current_hardware_suitability: 5
+      total: 36
+
+  - id: pg19
+    name: "PG-19"
+    official_source: "Google DeepMind"
+    official_url: "https://github.com/google-deepmind/pg19"
+    license: "Repository metadata says Apache-2.0; underlying Project Gutenberg text status must be checked per source/jurisdiction"
+    license_url: "https://www.gutenberg.org/policy/license"
+    approximate_size: "28,602 train books and 1,973,136,207 provider word-level tokens"
+    language: "English"
+    source_composition: "Project Gutenberg books published before 1919"
+    provenance: "Book ID, title and publication-date metadata"
+    intended_use: "Long-context language modeling benchmark; authors do not recommend it alone for general dialogue"
+    quality: "Long-form coherent prose; historical language/bias; PG boilerplate removed and selected terms mapped to placeholders"
+    duplicate_status: "UNKNOWN at corpus level"
+    code_proportion: "None expected"
+    synthetic_status: "Historical source books predate generative AI"
+    license_caveat: "Project Gutenberg warns that rights vary by country and individual work"
+    recommendation: "limited_secondary"
+    scores:
+      license_clarity: 4
+      training_use_clarity: 3
+      text_quality: 4
+      text_diversity: 3
+      provenance_clarity: 4
+      reproducibility: 5
+      size_suitability: 5
+      current_hardware_suitability: 5
+      total: 33
+
+  - id: pmc_oa_commercial_reuse
+    name: "PMC Open Access commercial-reuse-filtered subset"
+    official_source: "U.S. National Library of Medicine"
+    official_url: "https://pmc.ncbi.nlm.nih.gov/tools/pmcaws/"
+    license: "Per article/version; select CC0 or CC BY for conservative reuse"
+    license_url: "https://pmc.ncbi.nlm.nih.gov/about/copyright/"
+    approximate_size: "Millions of articles/preprints; exact permitted-token total UNKNOWN"
+    language: "Mostly English"
+    source_composition: "Biomedical and life-science articles/preprints"
+    provenance: "Per-version machine-readable license metadata and approved retrieval mechanisms"
+    intended_use: "Open-access text/data mining and reuse subject to article license"
+    quality: "High technical prose; domain-specific; may contain separately owned figures"
+    duplicate_status: "UNKNOWN"
+    code_proportion: "Low"
+    synthetic_status: "UNKNOWN at article level"
+    license_caveat: "Must inspect article/version license and exclude noncommercial/custom licenses and third-party assets"
+    recommendation: "later_optional_secondary"
+    scores:
+      license_clarity: 4
+      training_use_clarity: 4
+      text_quality: 5
+      text_diversity: 2
+      provenance_clarity: 5
+      reproducibility: 4
+      size_suitability: 4
+      current_hardware_suitability: 4
+      total: 32
+
+quality_review:
+  fineweb:
+    duplicates_spam_boilerplate: "Per-crawl deduplication and main-text filtering; web spam, boilerplate and cross-crawl repetition can remain."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "English; code not prevalent according to card."
+    document_length: "Variable web pages."
+    nexa_additional_filtering: "Yes: selected-subset duplicate check, source/URL review and sensitive-content policy."
+  dolma_v1_7:
+    duplicates_spam_boilerplate: "Source-specific filtering/deduplication; heterogeneous quality remains."
+    synthetic_content: "UNKNOWN; FLAN instruction component needs a separate compliance decision."
+    code_and_language: "Mixed English sources including code."
+    document_length: "Variable by source."
+    nexa_additional_filtering: "Yes: explicit allow-list and omission of code/instruction/uncertain sources."
+  redpajama_v2:
+    duplicates_spam_boilerplate: "Quality signals and deduplication metadata are supplied; no complete safety guarantee."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "Five languages; code share UNKNOWN."
+    document_length: "Variable web pages."
+    nexa_additional_filtering: "Yes: English-only selection, quality threshold and duplicate check."
+  the_pile:
+    duplicates_spam_boilerplate: "Component-dependent; some sources contain web noise or reused material."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "Predominantly English with material code."
+    document_length: "Highly variable by component."
+    nexa_additional_filtering: "Yes, but rights failures make V1 filtering uneconomical."
+  c4_english:
+    duplicates_spam_boilerplate: "Heuristic cleanup/deduplication; known blocklist and bias issues."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "English; code share UNKNOWN."
+    document_length: "Variable web pages."
+    nexa_additional_filtering: "Yes: audit blocklist effects, sampling, duplication and sensitive content."
+  slimpajama_627b:
+    duplicates_spam_boilerplate: "Cleaned/deduplicated but inherits source-specific noise and rights."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "English with a code component."
+    document_length: "Variable by component."
+    nexa_additional_filtering: "Yes: component allow-list and fresh cross-source duplicate check."
+  refinedweb:
+    duplicates_spam_boilerplate: "Strong exact/fuzzy/substring deduplication; toxic content and web noise can remain."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "English; code share UNKNOWN."
+    document_length: "Variable web pages."
+    nexa_additional_filtering: "Yes: selected-subset audit and source-rights review."
+  oscar_2301:
+    duplicates_spam_boilerplate: "Web-derived; quality varies by language and sensitive data may remain."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "More than 150 languages."
+    document_length: "Variable web pages."
+    nexa_additional_filtering: "Yes, but access and rights blockers come first."
+  roots:
+    duplicates_spam_boilerplate: "Source-specific cleaning plus cross-pipeline deduplication."
+    synthetic_content: "UNKNOWN"
+    code_and_language: "59 languages including programming languages."
+    document_length: "Variable by 498 sources."
+    nexa_additional_filtering: "Yes: English/no-code source recipe and governance review."
+  wikimedia_wikipedia_english:
+    duplicates_spam_boilerplate: "Clean article boundaries; no crawl spam, but editorial/revision duplication and markup/citation artifacts need review."
+    synthetic_content: "Not packaged as AI-generated; document-level zero-AI certification UNKNOWN."
+    code_and_language: "English; low code."
+    document_length: "Short stubs through long articles."
+    nexa_additional_filtering: "Yes: namespace/template/list/citation cleanup and local deduplication."
+  pg19:
+    duplicates_spam_boilerplate: "Long coherent books; no web spam; corpus-wide duplicate status UNKNOWN."
+    synthetic_content: "Historical books predate generative AI."
+    code_and_language: "English; no expected code."
+    document_length: "Long; provider reports average documents about 20 times WikiText long."
+    nexa_additional_filtering: "Yes: individual source-rights check and historical-style share cap."
+  pmc_oa_commercial_reuse:
+    duplicates_spam_boilerplate: "Structured peer-reviewed text; article versions, tables, references and third-party figures require care."
+    synthetic_content: "UNKNOWN at article level."
+    code_and_language: "Mostly English; low code."
+    document_length: "Long structured articles."
+    nexa_additional_filtering: "Yes: CC0/CC-BY filter, text-only extraction and article-version deduplication."
+
+recommendation:
+  primary_dataset:
+    id: "wikimedia_wikipedia_english"
+    pinned_version: "20231101.en or an equivalently pinned official dump version"
+    rationale: "Best combined license/provenance/reproducibility fit under the present strict gate; selected subset only."
+  optional_secondary_datasets:
+    - id: "pg19"
+      maximum_share_percent: 20
+      rationale: "Adds long-form prose without manual book collection; require per-source/jurisdiction review."
+    - id: "pmc_oa_commercial_reuse"
+      status: "deferred"
+      rationale: "Potential later scientific supplement only after article-level CC0/CC-BY manifesting."
+  conditionally_deferred_alternative:
+    id: "fineweb"
+    condition: "Only after explicit policy/legal acceptance of Common Crawl Terms of Use, source-rights uncertainty, and web synthetic-content risk."
+  initial_token_budget:
+    target_tokens: 10000000
+    rationale:
+      - "CPU-only PyTorch and no CUDA-capable training GPU"
+      - "Validate end-to-end data and training behavior before a 50M-token commitment"
+      - "Storage is not the bottleneck; measured training throughput is"
+    proposed_mix:
+      - source: "wikimedia_wikipedia_english"
+        target_tokens: 8000000
+        share_percent: 80
+      - source: "pg19"
+        target_tokens: 2000000
+        maximum_share_percent: 20
+      - source: "pmc_oa_commercial_reuse"
+        target_tokens: 0
+        status: "not_in_first_run"
+  next_gate_before_any_download:
+    - "User confirms the dataset choice and accepts/rejects the documented licensing posture."
+    - "Pin exact version and record official URLs/license notices."
+    - "Set all caches and working directories to F:."
+    - "Do not use external pretrained tokenizers to define final Nexa token count."
+    - "After a 10M run, measure actual tokens/second, peak RAM, loss behavior and checkpoint size before considering 50M."

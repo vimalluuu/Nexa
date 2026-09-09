@@ -39,6 +39,7 @@ data/raw/*
 !data/raw/*/
 data/raw/*/*
 !data/raw/*/metadata.yaml
+!data/raw/*/_metadata.yaml
 !data/raw/nexa_demo/*.txt
 
 data/cleaned/*
