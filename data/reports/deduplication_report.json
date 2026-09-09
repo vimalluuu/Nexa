@@ -1,0 +1,28 @@
+{
+  "generated": "2026-09-09T16:18:22.320079+00:00",
+  "phase": "8.4",
+  "note": "Exact SHA-256 deduplication across all sources. First occurrence kept.",
+  "total_input_docs": 19561,
+  "total_kept_docs": 19561,
+  "total_duplicate_docs": 0,
+  "total_duplicate_pct": 0.0,
+  "unique_hashes": 19561,
+  "per_source": [
+    {
+      "dataset": "wikimedia_english",
+      "input_docs": 19536,
+      "kept_docs": 19536,
+      "duplicate_docs": 0,
+      "duplicate_pct": 0.0,
+      "duplicate_sources": []
+    },
+    {
+      "dataset": "pg19",
+      "input_docs": 25,
+      "kept_docs": 25,
+      "duplicate_docs": 0,
+      "duplicate_pct": 0.0,
+      "duplicate_sources": []
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "generated": "2026-09-09T16:18:56.172416+00:00",
+  "phase": "8.4",
+  "elapsed_s": 39.6,
+  "cleaned_corpus": {
+    "total_docs": 19561,
+    "total_chars": 333632162,
+    "total_words": 52910807,
+    "avg_chars": 17056.0,
+    "avg_words": 2704.9,
+    "source_proportions": {
+      "wikimedia_english_cleaned": {
+        "doc_count": 19536,
+        "doc_pct": 99.87,
+        "char_total": 316170902,
+        "char_pct": 94.77,
+        "word_total": 49728938,
+        "word_pct": 93.99
+      },
+      "pg19_cleaned": {
+        "doc_count": 25,
+        "doc_pct": 0.13,
+        "char_total": 17461260,
+        "char_pct": 5.23,
+        "word_total": 3181869,
+        "word_pct": 6.01
+      }
+    },
+    "per_source": [
+      {
+        "dataset": "wikimedia_english_cleaned",
+        "doc_count": 19536,
+        "char_total": 316170902,
+        "word_total": 49728938,
+        "avg_chars": 16184.0,
+        "avg_words": 2545.5,
+        "char_min": 201,
+        "char_max": 197884,
+        "word_min": 30,
+        "word_max": 30982,
+        "median_chars": 10295,
+        "median_words": 1622,
+        "char_percentiles": {
+          "p10": 1614,
+          "p25": 3798,
+          "p50": 10295,
+          "p75": 22902,
+          "p90": 39311,
+          "p99": 78258
+        },
+        "word_percentiles": {
+          "p10": 250,
+          "p25": 598,
+          "p50": 1622,
+          "p75": 3591,
+          "p90": 6177,
+          "p99": 12352
+        },
+        "low_ttr_docs": 0,
+        "low_ttr_pct": 0.0
+      },
+      {
+        "dataset": "pg19_cleaned",
+        "doc_count": 25,
+        "char_total": 17461260,
+        "word_total": 3181869,
+        "avg_chars": 698450.4,
+        "avg_words": 127274.8,
+        "char_min": 9902,
+        "char_max": 4565810,
+        "word_min": 1526,
+        "word_max": 821297,
+        "median_chars": 296567,
+        "median_words": 52144,
+        "char_percentiles": {
+          "p10": 97218,
+          "p25": 158334,
+          "p50": 296567,
+          "p75": 487494,
+          "p90": 1388070,
+          "p99": 4509282
+        },
+        "word_percentiles": {
+          "p10": 17562,
+          "p25": 28541,
+          "p50": 52144,
+          "p75": 91124,
+          "p90": 252798,
+          "p99": 821257
+        },
+        "low_ttr_docs": 4,
+        "low_ttr_pct": 16.0
+      }
+    ]
+  },
+  "deduplicated_corpus": {
+    "total_docs": 19561,
+    "total_chars": 333632162,
+    "total_words": 52910807,
+    "avg_chars": 17056.0,
+    "avg_words": 2704.9,
+    "source_proportions": {
+      "wikimedia_english_dedup": {
+        "doc_count": 19536,
+        "doc_pct": 99.87,
+        "char_total": 316170902,
+        "char_pct": 94.77,
+        "word_total": 49728938,
+        "word_pct": 93.99
+      },
+      "pg19_dedup": {
+        "doc_count": 25,
+        "doc_pct": 0.13,
+        "char_total": 17461260,
+        "char_pct": 5.23,
+        "word_total": 3181869,
+        "word_pct": 6.01
+      }
+    },
+    "per_source": [
+      {
+        "dataset": "wikimedia_english_dedup",
+        "doc_count": 19536,
+        "char_total": 316170902,
+        "word_total": 49728938,
+        "avg_chars": 16184.0,
+        "avg_words": 2545.5,
+        "char_min": 201,
+        "char_max": 197884,
+        "word_min": 30,
+        "word_max": 30982,
+        "median_chars": 10295,
+        "median_words": 1622,
+        "char_percentiles": {
+          "p10": 1614,
+          "p25": 3798,
+          "p50": 10295,
+          "p75": 22902,
+          "p90": 39311,
+          "p99": 78258
+        },
+        "word_percentiles": {
+          "p10": 250,
+          "p25": 598,
+          "p50": 1622,
+          "p75": 3591,
+          "p90": 6177,
+          "p99": 12352
+        },
+        "low_ttr_docs": 0,
+        "low_ttr_pct": 0.0
+      },
+      {
+        "dataset": "pg19_dedup",
+        "doc_count": 25,
+        "char_total": 17461260,
+        "word_total": 3181869,
+        "avg_chars": 698450.4,
+        "avg_words": 127274.8,
+        "char_min": 9902,
+        "char_max": 4565810,
+        "word_min": 1526,
+        "word_max": 821297,
+        "median_chars": 296567,
+        "median_words": 52144,
+        "char_percentiles": {
+          "p10": 97218,
+          "p25": 158334,
+          "p50": 296567,
+          "p75": 487494,
+          "p90": 1388070,
+          "p99": 4509282
+        },
+        "word_percentiles": {
+          "p10": 17562,
+          "p25": 28541,
+          "p50": 52144,
+          "p75": 91124,
+          "p90": 252798,
+          "p99": 821257
+        },
+        "low_ttr_docs": 4,
+        "low_ttr_pct": 16.0
+      }
+    ]
+  },
+  "deduplication_summary": {
+    "total_input_docs": 19561,
+    "total_kept_docs": 19561,
+    "total_duplicate_docs": 0,
+    "total_duplicate_pct": 0.0,
+    "unique_hashes": 19561,
+    "per_source": [
+      {
+        "dataset": "wikimedia_english",
+        "input_docs": 19536,
+        "kept_docs": 19536,
+        "duplicate_docs": 0,
+        "duplicate_pct": 0.0,
+        "duplicate_sources": []
+      },
+      {
+        "dataset": "pg19",
+        "input_docs": 25,
+        "kept_docs": 25,
+        "duplicate_docs": 0,
+        "duplicate_pct": 0.0,
+        "duplicate_sources": []
+      }
+    ]
+  },
+  "balance_analysis": [
+    {
+      "ratio": "90/10 wiki/pg19",
+      "wiki_fraction": 0.9,
+      "pg19_fraction": 0.1,
+      "wikimedia_english": {
+        "target_words": 47619726,
+        "available_words": 47619726,
+        "est_docs": 18707,
+        "word_pct": 90.0
+      },
+      "pg19": {
+        "target_words": 5291080,
+        "available_words": 3181869,
+        "est_docs": 25,
+        "word_pct": 6.01
+      },
+      "combined": {
+        "total_words": 50801595,
+        "total_est_docs": 18732
+      }
+    },
+    {
+      "ratio": "80/20 wiki/pg19",
+      "wiki_fraction": 0.8,
+      "pg19_fraction": 0.2,
+      "wikimedia_english": {
+        "target_words": 42328645,
+        "available_words": 42328645,
+        "est_docs": 16628,
+        "word_pct": 80.0
+      },
+      "pg19": {
+        "target_words": 10582161,
+        "available_words": 3181869,
+        "est_docs": 25,
+        "word_pct": 6.01
+      },
+      "combined": {
+        "total_words": 45510514,
+        "total_est_docs": 16653
+      }
+    },
+    {
+      "ratio": "70/30 wiki/pg19",
+      "wiki_fraction": 0.7,
+      "pg19_fraction": 0.3,
+      "wikimedia_english": {
+        "target_words": 37037564,
+        "available_words": 37037564,
+        "est_docs": 14550,
+        "word_pct": 70.0
+      },
+      "pg19": {
+        "target_words": 15873242,
+        "available_words": 3181869,
+        "est_docs": 25,
+        "word_pct": 6.01
+      },
+      "combined": {
+        "total_words": 40219433,
+        "total_est_docs": 14575
+      }
+    }
+  ],
+  "pilot_selection": {
+    "seed": 42,
+    "disclaimer": "Word-count-based selection only. Exact Nexa BPE token count is UNKNOWN until Nexa's own tokenizer is trained and applied. Estimated BPE token count: approx. 1.2-1.5 * word count.",
+    "target_words": 7500000,
+    "estimated_tokens_low": 11018682,
+    "estimated_tokens_high": 13773352,
+    "exact_nexa_token_count": "UNKNOWN — pending Nexa BPE training",
+    "wiki_target_words": 6000000,
+    "pg19_target_words": 1500000,
+    "wiki_selected_docs": 2232,
+    "wiki_actual_words": 6000366,
+    "pg19_selected_docs": 25,
+    "pg19_actual_words": 3181869,
+    "total_selected_docs": 2257,
+    "total_actual_words": 9182235
+  },
+  "token_count_note": "Exact Nexa BPE token count is UNKNOWN until Nexa's own BPE tokenizer is trained on this corpus and applied. All 'token' estimates in this report are rough approximations based on English BPE ratios (1.2–1.5 tokens per word). Do not treat these as authoritative token counts."
+}
