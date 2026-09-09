@@ -1,0 +1,120 @@
+{
+  "generated": "2026-09-09T16:02:20.710208+00:00",
+  "phase": "8.3",
+  "inventory": {
+    "wiki_bz2_files": 1,
+    "pg19_txt_files": 25,
+    "files": {
+      "data\\raw\\wikimedia_english\\source\\enwiki-20260901-pages-articles1.xml-p1p41242.bz2": {
+        "exists": true,
+        "size_bytes": 299035206,
+        "partial_sha256": "599d11b6e2e2076f00db513f61bbf0b60fbe958a3ce9efd16d72fd3af875205d"
+      },
+      "data\\raw\\pg19\\source\\10.txt": {
+        "exists": true,
+        "size_bytes": 4432484
+      },
+      "data\\raw\\pg19\\source\\11.txt": {
+        "exists": true,
+        "size_bytes": 147885
+      },
+      "data\\raw\\pg19\\source\\12.txt": {
+        "exists": true,
+        "size_bytes": 166252
+      },
+      "data\\raw\\pg19\\source\\13.txt": {
+        "exists": true,
+        "size_bytes": 33568
+      },
+      "data\\raw\\pg19\\source\\15.txt": {
+        "exists": true,
+        "size_bytes": 11802
+      },
+      "data\\raw\\pg19\\source\\17.txt": {
+        "exists": true,
+        "size_bytes": 1575740
+      },
+      "data\\raw\\pg19\\source\\18.txt": {
+        "exists": true,
+        "size_bytes": 1193356
+      },
+      "data\\raw\\pg19\\source\\19.txt": {
+        "exists": true,
+        "size_bytes": 194703
+      },
+      "data\\raw\\pg19\\source\\20.txt": {
+        "exists": true,
+        "size_bytes": 487542
+      },
+      "data\\raw\\pg19\\source\\23.txt": {
+        "exists": true,
+        "size_bytes": 228677
+      },
+      "data\\raw\\pg19\\source\\24.txt": {
+        "exists": true,
+        "size_bytes": 304749
+      },
+      "data\\raw\\pg19\\source\\26.txt": {
+        "exists": true,
+        "size_bytes": 470892
+      },
+      "data\\raw\\pg19\\source\\30.txt": {
+        "exists": true,
+        "size_bytes": 5199063
+      },
+      "data\\raw\\pg19\\source\\31.txt": {
+        "exists": true,
+        "size_bytes": 222010
+      },
+      "data\\raw\\pg19\\source\\32.txt": {
+        "exists": true,
+        "size_bytes": 303039
+      },
+      "data\\raw\\pg19\\source\\33.txt": {
+        "exists": true,
+        "size_bytes": 496758
+      },
+      "data\\raw\\pg19\\source\\35.txt": {
+        "exists": true,
+        "size_bytes": 182318
+      },
+      "data\\raw\\pg19\\source\\36.txt": {
+        "exists": true,
+        "size_bytes": 345795
+      },
+      "data\\raw\\pg19\\source\\41.txt": {
+        "exists": true,
+        "size_bytes": 71049
+      },
+      "data\\raw\\pg19\\source\\42.txt": {
+        "exists": true,
+        "size_bytes": 143355
+      },
+      "data\\raw\\pg19\\source\\43.txt": {
+        "exists": true,
+        "size_bytes": 141239
+      },
+      "data\\raw\\pg19\\source\\44.txt": {
+        "exists": true,
+        "size_bytes": 845757
+      },
+      "data\\raw\\pg19\\source\\45.txt": {
+        "exists": true,
+        "size_bytes": 571805
+      },
+      "data\\raw\\pg19\\source\\46.txt": {
+        "exists": true,
+        "size_bytes": 162393
+      },
+      "data\\raw\\pg19\\source\\47.txt": {
+        "exists": true,
+        "size_bytes": 497961
+      }
+    }
+  },
+  "thresholds": {
+    "min_chars": 200,
+    "min_words": 30,
+    "max_chars": 10000000
+  }
+}

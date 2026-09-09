@@ -1,0 +1,67 @@
+{
+  "generated": "2026-09-09T16:07:35.135657+00:00",
+  "started_at": "2026-09-09T16:02:20.710208+00:00",
+  "elapsed_seconds": 314.4,
+  "phase": "8.3",
+  "thresholds": {
+    "min_chars": 200,
+    "min_words": 30,
+    "max_chars": 10000000
+  },
+  "combined": {
+    "total_input": 20943,
+    "kept": 19561,
+    "removed": 1382,
+    "total_chars": 333632162,
+    "total_words": 52910807,
+    "avg_chars": 17056.0
+  },
+  "datasets": {
+    "wikimedia_english": {
+      "total_input": 20918,
+      "kept": 19536,
+      "raw_total_pages": 27352,
+      "skipped_wrong_ns": 201,
+      "skipped_redirects": 6233,
+      "extraction_errors": 0,
+      "dataset": "wikimedia_english",
+      "removed_total": 1382,
+      "removed_empty": 1139,
+      "removed_too_short": 243,
+      "removed_too_long": 0,
+      "removed_binary": 0,
+      "removed_other": 0,
+      "extraction_failures": 0,
+      "total_chars": 316170902,
+      "total_words": 49728938,
+      "avg_chars": 16184.0,
+      "avg_words": 2545.5,
+      "min_chars": 201,
+      "max_chars": 197884
+    },
+    "pg19": {
+      "txt_files_found": 25,
+      "extraction_errors": 0,
+      "dataset": "pg19",
+      "total_input": 25,
+      "kept": 25,
+      "removed_total": 0,
+      "removed_empty": 0,
+      "removed_too_short": 0,
+      "removed_too_long": 0,
+      "removed_binary": 0,
+      "removed_other": 0,
+      "extraction_failures": 0,
+      "total_chars": 17461260,
+      "total_words": 3181869,
+      "avg_chars": 698450.4,
+      "avg_words": 127274.8,
+      "min_chars": 9902,
+      "max_chars": 4565810
+    }
+  },
+  "output_files": {
+    "wikimedia_english": "data\\cleaned\\wikimedia_english\\docs.jsonl",
+    "pg19": "data\\cleaned\\pg19\\docs.jsonl"
+  }
+}
