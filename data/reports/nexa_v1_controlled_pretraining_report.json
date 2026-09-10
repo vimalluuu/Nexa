@@ -1,0 +1,286 @@
+{
+  "phase": "8.8",
+  "generated": "2026-09-10T01:45:02.050341+00:00",
+  "git_note": "See git log for exact commit hash",
+  "config": {
+    "model": {
+      "vocab_size": 2048,
+      "d_model": 256,
+      "n_heads": 8,
+      "n_layers": 6,
+      "d_ff": 1024,
+      "max_seq_len": 512,
+      "norm_type": "rmsnorm",
+      "pos_encoding": "rotary",
+      "tie_embeddings": true
+    },
+    "training": {
+      "max_steps": 200,
+      "warmup_steps": 20,
+      "batch_size": 4,
+      "block_size": 512,
+      "learning_rate": 0.0003,
+      "min_lr": 3e-05,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "seed": 42,
+      "device": "cpu"
+    }
+  },
+  "model_info": {
+    "total_params": 6819072,
+    "non_embedding_params": 6294784,
+    "initialized_from": "scratch"
+  },
+  "dataset_info": {
+    "train_tokens_loaded": 18901546,
+    "val_tokens_loaded": 2000821,
+    "train_windows": 18901034,
+    "val_windows": 2000309,
+    "shard_train_dir": "data\\processed\\train",
+    "shard_val_dir": "data\\processed\\validation",
+    "manifest_ref": {
+      "generated": "2026-09-10T01:12:00.737744+00:00",
+      "tokenizer_vocab_size": 2048,
+      "bos_eos_included": true
+    },
+    "checksums_ref": [
+      "3bdcd83e241f1acadbac0e8f385f30d2fa8b6bf7d28dc3e1d2d226d202f1b4c0  train/shard_000.bin",
+      "5c171a8602c55bbef16c5abbb94418d41b5ee7b84da3255373bafec7f18307d1  train/shard_001.bin",
+      "f2a16b7935f3f3a1ea77dba9e023c7d2dd5c291974bbfce55d48685a0b743b24  validation/shard_000.bin"
+    ]
+  },
+  "training_budget": {
+    "optimizer_steps": 200,
+    "tokens_per_step": 2048,
+    "total_tokens_processed": 409600
+  },
+  "results": {
+    "initial_train_loss": 7.055422306060791,
+    "final_train_loss": 5.7587127685546875,
+    "loss_trajectory": [
+      [
+        20,
+        7.055422306060791
+      ],
+      [
+        40,
+        6.3126397132873535
+      ],
+      [
+        60,
+        6.2376909255981445
+      ],
+      [
+        80,
+        6.245083332061768
+      ],
+      [
+        100,
+        6.269533634185791
+      ],
+      [
+        120,
+        6.223494052886963
+      ],
+      [
+        140,
+        6.207545280456543
+      ],
+      [
+        160,
+        6.328556537628174
+      ],
+      [
+        180,
+        6.137330055236816
+      ],
+      [
+        200,
+        5.7587127685546875
+      ]
+    ],
+    "val_loss_trajectory": [
+      [
+        50,
+        6.722607364654541
+      ],
+      [
+        100,
+        6.643527364730835
+      ],
+      [
+        150,
+        6.5746530914306645
+      ],
+      [
+        200,
+        6.489658651351928
+      ]
+    ],
+    "final_val_loss": 6.489658651351928,
+    "final_val_perplexity": 658.2986,
+    "lr_trajectory": [
+      [
+        20,
+        0.0003
+      ],
+      [
+        40,
+        0.00029264500770590776
+      ],
+      [
+        60,
+        0.000269914704796691
+      ],
+      [
+        80,
+        0.0002345301401128573
+      ],
+      [
+        100,
+        0.00019075921437583353
+      ],
+      [
+        120,
+        0.0001438813472195688
+      ],
+      [
+        140,
+        9.955070126674448e-05
+      ],
+      [
+        160,
+        6.311420666992577e-05
+      ],
+      [
+        180,
+        3.896664242287778e-05
+      ],
+      [
+        200,
+        3.002056115388718e-05
+      ]
+    ]
+  },
+  "throughput": {
+    "wall_clock_s": 418.72,
+    "tokens_per_sec": 978,
+    "total_wall_clock_s": 458.68
+  },
+  "checkpoint": {
+    "path": "checkpoints\\nexa_v1_controlled\\step_0000200.pt",
+    "dir": "checkpoints\\nexa_v1_controlled"
+  },
+  "resume_verification": {
+    "resumed_from_step": 200,
+    "resume_steps_run": 20,
+    "resumed_losses": [
+      6.026443004608154
+    ],
+    "final_resumed_loss": 6.026443004608154,
+    "is_finite": true,
+    "loss_not_nan": true
+  },
+  "inference_sanity_check": {
+    "samples": [
+      {
+        "prompt_tokens": [
+          1
+        ],
+        "generated_tokens": [
+          1,
+          837,
+          807,
+          1395,
+          906,
+          1289,
+          1529,
+          1159,
+          1632,
+          849,
+          1235,
+          2019,
+          817,
+          1902,
+          937,
+          1180,
+          1250,
+          1306,
+          985,
+          1343,
+          1004
+        ],
+        "length": 21,
+        "all_ids_valid": true
+      },
+      {
+        "prompt_tokens": [
+          1,
+          10,
+          20
+        ],
+        "generated_tokens": [
+          1,
+          10,
+          20,
+          1992,
+          73,
+          951,
+          836,
+          812,
+          1771,
+          827,
+          38,
+          1953,
+          1823,
+          87,
+          906,
+          22,
+          71,
+          1174,
+          1320,
+          81,
+          891,
+          1668,
+          820
+        ],
+        "length": 23,
+        "all_ids_valid": true
+      },
+      {
+        "prompt_tokens": [
+          1,
+          100
+        ],
+        "generated_tokens": [
+          1,
+          100,
+          835,
+          868,
+          880,
+          844,
+          1512,
+          828,
+          811,
+          81,
+          1899,
+          861,
+          839,
+          821,
+          820,
+          1077,
+          1309,
+          885,
+          55,
+          37,
+          850,
+          71
+        ],
+        "length": 22,
+        "all_ids_valid": true
+      }
+    ],
+    "all_valid": true
+  }
+}
