@@ -1,0 +1,184 @@
+{
+  "phase": "8.7",
+  "hardware": {
+    "cpu": "AMD Ryzen 5 5600G",
+    "cores": "6 physical / 12 logical",
+    "ram_gb": 16,
+    "accelerator": "CPU only (no CUDA)"
+  },
+  "benchmark_results": [
+    {
+      "name": "small",
+      "config": {
+        "d_model": 128,
+        "n_heads": 4,
+        "n_layers": 4,
+        "d_ff": 512,
+        "vocab_size": 2048,
+        "max_seq_len": 256
+      },
+      "benchmark_settings": {
+        "batch_size": 4,
+        "seq_len": 256,
+        "warmup_steps": 5,
+        "benchmark_steps": 20
+      },
+      "parameters": {
+        "total": 1311872,
+        "embedding": 262144,
+        "attention": 262144,
+        "mlp": 786432,
+        "norms_and_other": 1152,
+        "non_embedding": 1049728
+      },
+      "memory_estimate_mb": {
+        "model_weights_mb": 5.0,
+        "optimizer_states_mb": 10.0,
+        "gradients_mb": 5.0,
+        "activations_mb": 4.0,
+        "total_estimated_mb": 24.0
+      },
+      "timing_ms": {
+        "fwd_avg": 116.9,
+        "fwd_p95": 135.9,
+        "bwd_avg": 57.9,
+        "bwd_p95": 80.6,
+        "opt_avg": 9.0,
+        "total_step_avg": 269.4
+      },
+      "throughput": {
+        "tokens_per_sec": 3801,
+        "tokens_processed": 20480
+      },
+      "loss": {
+        "avg_train_loss": 7.2277,
+        "avg_val_loss": 7.0439,
+        "train_perplexity": 1377.11,
+        "val_perplexity": 1145.9
+      }
+    },
+    {
+      "name": "medium",
+      "config": {
+        "d_model": 256,
+        "n_heads": 8,
+        "n_layers": 6,
+        "d_ff": 1024,
+        "vocab_size": 2048,
+        "max_seq_len": 512
+      },
+      "benchmark_settings": {
+        "batch_size": 4,
+        "seq_len": 512,
+        "warmup_steps": 5,
+        "benchmark_steps": 20
+      },
+      "parameters": {
+        "total": 6819072,
+        "embedding": 524288,
+        "attention": 1572864,
+        "mlp": 4718592,
+        "norms_and_other": 3328,
+        "non_embedding": 6294784
+      },
+      "memory_estimate_mb": {
+        "model_weights_mb": 26.0,
+        "optimizer_states_mb": 52.0,
+        "gradients_mb": 26.0,
+        "activations_mb": 24.0,
+        "total_estimated_mb": 128.1
+      },
+      "timing_ms": {
+        "fwd_avg": 1050.6,
+        "fwd_p95": 1291.1,
+        "bwd_avg": 510.8,
+        "bwd_p95": 577.1,
+        "opt_avg": 26.7,
+        "total_step_avg": 1667.5
+      },
+      "throughput": {
+        "tokens_per_sec": 1228,
+        "tokens_processed": 40960
+      },
+      "loss": {
+        "avg_train_loss": 6.9388,
+        "avg_val_loss": 6.7024,
+        "train_perplexity": 1031.54,
+        "val_perplexity": 814.4
+      }
+    },
+    {
+      "name": "large",
+      "config": {
+        "d_model": 512,
+        "n_heads": 8,
+        "n_layers": 6,
+        "d_ff": 2048,
+        "vocab_size": 2048,
+        "max_seq_len": 512
+      },
+      "benchmark_settings": {
+        "batch_size": 2,
+        "seq_len": 512,
+        "warmup_steps": 5,
+        "benchmark_steps": 20
+      },
+      "parameters": {
+        "total": 26221056,
+        "embedding": 1048576,
+        "attention": 6291456,
+        "mlp": 18874368,
+        "norms_and_other": 6656,
+        "non_embedding": 25172480
+      },
+      "memory_estimate_mb": {
+        "model_weights_mb": 100.0,
+        "optimizer_states_mb": 200.1,
+        "gradients_mb": 100.0,
+        "activations_mb": 24.0,
+        "total_estimated_mb": 424.1
+      },
+      "timing_ms": {
+        "fwd_avg": 737.2,
+        "fwd_p95": 897.1,
+        "bwd_avg": 569.3,
+        "bwd_p95": 657.9,
+        "opt_avg": 86.8,
+        "total_step_avg": 1470.2
+      },
+      "throughput": {
+        "tokens_per_sec": 696,
+        "tokens_processed": 20480
+      },
+      "loss": {
+        "avg_train_loss": 6.651,
+        "avg_val_loss": 6.6039,
+        "train_perplexity": 773.57,
+        "val_perplexity": 737.96
+      }
+    }
+  ],
+  "recommendation": {
+    "recommended": "medium",
+    "recommended_config": {
+      "d_model": 256,
+      "n_heads": 8,
+      "n_layers": 6,
+      "d_ff": 1024,
+      "vocab_size": 2048,
+      "max_seq_len": 512
+    },
+    "recommended_params": 6819072,
+    "rationale": "Config medium (6,819,072 params) is recommended for the FIRST pretraining experiment. The automatic selector chose large (26M params), but with only 20.9M training tokens the large model is severely under-tokenised (0.72 tokens/param vs the Chinchilla-optimal ~20x). Medium at 6.82M params achieves 1,228 tok/s (vs 696 for large), gives ~43h for 10 epochs (vs 75h), and operates at a more compute-efficient tokens/param ratio of 2.77x — still well below Chinchilla optimal but far more reasonable for a pilot. The large config is reserved for when the corpus grows to >=500M tokens.",
+    "steps_per_epoch_estimate": 9229,
+    "hours_for_10_epochs": 42.8,
+    "chinchilla_note": {
+      "optimal_tokens_per_param": 20,
+      "small_needs_tokens": "~26M",
+      "medium_needs_tokens": "~136M",
+      "large_needs_tokens": "~524M",
+      "pilot_tokens_available": "20.9M",
+      "verdict": "medium is the largest config that is not severely undertrained on this corpus"
+    }
+  }
+}

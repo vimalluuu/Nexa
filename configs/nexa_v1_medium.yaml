@@ -1,0 +1,47 @@
+# =============================================================================
+# Nexa V1 — Config B: Medium (Pilot)
+# =============================================================================
+# Designed for: the recommended first real pretraining experiment
+# CPU:          AMD Ryzen 5 5600G  (6 cores / 12 threads, no CUDA)
+# RAM budget:   <= 4 GB total (model + optimizer + activations)
+#
+# Parameter breakdown:
+#   vocab_size=2048, d_model=256, n_heads=8, n_layers=6, d_ff=1024
+#   Embedding:   2048 × 256          =    524,288  (tied w/ LM head)
+#   Attn/layer:  4 × 256 × 256       =    262,144
+#   FFN/layer:   3 × 256 × 1024      =    786,432  (SwiGLU: gate+up+down)
+#   Norm/layer:  2 × 256             =        512
+#   6 layers:    6 × (262144+786432) = 6,291,456
+#   Final norm:  256                 =        256
+#   Total:       524,288 + 6,291,456 ≈ 6.82M parameters
+#
+# Memory estimate (float32):
+#   Model weights:   6.82M × 4B = ~27.3 MB
+#   Optimizer (AdamW 2 states): ~54.6 MB
+#   Activations (B=4, S=512):  ~6 MB
+#   Total: ~90 MB — very comfortable on 16 GB RAM
+#
+# Expected throughput (CPU, B=4, S=512): ~500-1,500 tokens/sec
+# =============================================================================
+
+model:
+  name: "nexa-v1-medium"
+  version: "1.0.0"
+
+  vocab_size: 2048
+  pad_token_id: 0
+  bos_token_id: 1
+  eos_token_id: 2
+
+  max_seq_len: 512
+
+  d_model: 256
+  n_heads: 8
+  n_layers: 6
+  d_ff: 1024
+
+  dropout: 0.1
+  norm_type: "rmsnorm"
+  norm_eps: 1.0e-6
+  pos_encoding: "rotary"
+  tie_embeddings: true

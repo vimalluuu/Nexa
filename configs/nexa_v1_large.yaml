@@ -1,0 +1,49 @@
+# =============================================================================
+# Nexa V1 — Config C: Large (Experimental)
+# =============================================================================
+# Designed for: stress-testing hardware limits — may be slow on CPU
+# CPU:          AMD Ryzen 5 5600G  (6 cores / 12 threads, no CUDA)
+# RAM budget:   <= 8 GB total (model + optimizer + activations)
+#
+# Parameter breakdown:
+#   vocab_size=2048, d_model=512, n_heads=8, n_layers=6, d_ff=2048
+#   Embedding:   2048 × 512          =  1,048,576  (tied w/ LM head)
+#   Attn/layer:  4 × 512 × 512       =  1,048,576
+#   FFN/layer:   3 × 512 × 2048      =  3,145,728  (SwiGLU: gate+up+down)
+#   Norm/layer:  2 × 512             =      1,024
+#   6 layers:    6 × (1048576+3145728)= 25,165,824
+#   Final norm:  512                 =        512
+#   Total:       1,048,576 + 25,165,824 ≈ 26.22M parameters
+#
+# Memory estimate (float32):
+#   Model weights:   26.22M × 4B = ~104.9 MB
+#   Optimizer (AdamW 2 states): ~209.8 MB
+#   Activations (B=2, S=512):  ~25 MB
+#   Total: ~340 MB — feasible on 16 GB but slow per step
+#
+# Expected throughput (CPU, B=2, S=512): ~100-300 tokens/sec
+# NOTE: this is the same architecture as the current configs/model_config.yaml
+#       but rebased to vocab_size=2048 (reducing embedding cost significantly)
+# =============================================================================
+
+model:
+  name: "nexa-v1-large"
+  version: "1.0.0"
+
+  vocab_size: 2048
+  pad_token_id: 0
+  bos_token_id: 1
+  eos_token_id: 2
+
+  max_seq_len: 512
+
+  d_model: 512
+  n_heads: 8
+  n_layers: 6
+  d_ff: 2048
+
+  dropout: 0.1
+  norm_type: "rmsnorm"
+  norm_eps: 1.0e-6
+  pos_encoding: "rotary"
+  tie_embeddings: true
