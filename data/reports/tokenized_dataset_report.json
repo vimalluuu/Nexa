@@ -1,0 +1,17 @@
+{
+  "total_documents": 2257,
+  "train_documents": 2032,
+  "val_documents": 225,
+  "total_tokens": 20902367,
+  "train_tokens": 18901546,
+  "val_tokens": 2000821,
+  "vocab_size": 2048,
+  "avg_tokens_per_doc": 9261.1,
+  "median_tokens_per_doc": 4266,
+  "p90_tokens_per_doc": 15292,
+  "p95_tokens_per_doc": 20801,
+  "p99_tokens_per_doc": 41560,
+  "elapsed_s": 80.4,
+  "total_storage_mb": 39.87,
+  "shard_count": 3
+}

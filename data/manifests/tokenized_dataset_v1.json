@@ -1,0 +1,33 @@
+{
+  "phase": "8.6",
+  "generated": "2026-09-10T01:12:00.737744+00:00",
+  "tokenizer_vocab_size": 2048,
+  "seed": 42,
+  "val_fraction": 0.1,
+  "format": "uint16 little-endian binary",
+  "bos_eos_included": true,
+  "shards": {
+    "train": [
+      {
+        "filename": "shard_000.bin",
+        "tokens": 10000000,
+        "bytes": 20000000,
+        "sha256": "3bdcd83e241f1acadbac0e8f385f30d2fa8b6bf7d28dc3e1d2d226d202f1b4c0"
+      },
+      {
+        "filename": "shard_001.bin",
+        "tokens": 8901546,
+        "bytes": 17803092,
+        "sha256": "5c171a8602c55bbef16c5abbb94418d41b5ee7b84da3255373bafec7f18307d1"
+      }
+    ],
+    "validation": [
+      {
+        "filename": "shard_000.bin",
+        "tokens": 2000821,
+        "bytes": 4001642,
+        "sha256": "f2a16b7935f3f3a1ea77dba9e023c7d2dd5c291974bbfce55d48685a0b743b24"
+      }
+    ]
+  }
+}
