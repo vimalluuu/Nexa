@@ -1,7 +1,7 @@
 # Nexa Phase 11 — V2 Tokenizer Rewrite and Comparison
 
-**Generated:** 2026-09-11T04:53:12.564171+00:00
-**Git Commit:** `bae37333a1646f3b2b49fd583e0d0c664ff707f9`
+**Generated:** 2026-09-11T05:01:39.901066+00:00
+**Git Commit:** `d0c7734043ce4dc9fee6574c811ae0db214380fb`
 
 ## Executive Summary
 A true Byte-Level BPE tokenizer was built from scratch and tested against the V1 Character-level BPE. The V2 tokenizer perfectly isolates special tokens (`0-3`) from base bytes (`4-259`), guaranteeing 100% UTF-8 robustness with 0 `<unk>` emissions.
@@ -9,10 +9,10 @@ A true Byte-Level BPE tokenizer was built from scratch and tested against the V1
 ## Tokenizer Performance (500 Document Sample)
 | Tokenizer | Vocab Size | Tokens/Word | Chars/Token | UNK Rate | Decode Correctness | Encode Time (s) |
 |-----------|------------|-------------|-------------|----------|--------------------|-----------------|
-| V1 Character BPE | 2048 | 2.348 | 2.729 | 0.0% | Flawed (Lossy UNK fallbacks) | 12.7 |
-| V2 Byte BPE (4096) | 4096 | 1.995 | 3.213 | 0.0% | Perfect (Deterministic byte reconstruction) | 14.34 |
-| V2 Byte BPE (8192) | 8192 | 1.778 | 3.605 | 0.0% | Perfect (Deterministic byte reconstruction) | 15.11 |
-| V2 Byte BPE (16384) | 16384 | 1.648 | 3.89 | 0.0% | Perfect (Deterministic byte reconstruction) | 15.16 |
+| V1 Character BPE | 2048 | 2.348 | 2.729 | 0.0% | Flawed (Lossy UNK fallbacks) | 12.61 |
+| V2 Byte BPE (4096) | 4096 | 1.995 | 3.213 | 0.0% | Perfect (Deterministic byte reconstruction) | 14.29 |
+| V2 Byte BPE (8192) | 8192 | 1.778 | 3.605 | 0.0% | Perfect (Deterministic byte reconstruction) | 15.01 |
+| V2 Byte BPE (16384) | 16384 | 1.648 | 3.89 | 0.0% | Perfect (Deterministic byte reconstruction) | 15.6 |
 
 ## Parameter Cost Analysis (Assuming `d_model = 384`)
 | Vocab Size | Embedding Params | Memory (MB) |
@@ -33,7 +33,7 @@ A true Byte-Level BPE tokenizer was built from scratch and tested against the V1
 - The 8192 vocab size offers a strong balance of sequence compression (fewer tokens per word) without excessively bloating the embedding layer.
 **HYPOTHESIS**
 - The improved sequence compression (higher chars/token) will allow the model to pack more semantic context into the 512 context window.
-- The lack of `<unk>` tokens will entirely eliminate the malformed generation artifacts seen in Phase 9, as the model will no longer have to guess missing characters.
+- The lack of `<unk>` tokens may reduce malformed generation artifacts seen in Phase 9, but since those artifacts may also stem from model capacity or data scarcity, this must be measured in the V2 training phase.
 
 ## Final Recommendation
 **Selected:** V2 Byte BPE (8192)

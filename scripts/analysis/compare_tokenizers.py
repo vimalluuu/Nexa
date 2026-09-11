@@ -145,7 +145,7 @@ def generate_report():
             ],
             "HYPOTHESIS": [
                 "The improved sequence compression (higher chars/token) will allow the model to pack more semantic context into the 512 context window.",
-                "The lack of `<unk>` tokens will entirely eliminate the malformed generation artifacts seen in Phase 9, as the model will no longer have to guess missing characters."
+                "The lack of `<unk>` tokens may reduce malformed generation artifacts seen in Phase 9, but since those artifacts may also stem from model capacity or data scarcity, this must be measured in the V2 training phase."
             ]
         },
         "recommendation": {

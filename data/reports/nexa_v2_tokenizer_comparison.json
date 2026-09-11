@@ -1,7 +1,7 @@
 {
   "phase": "11",
-  "generated": "2026-09-11T04:53:12.564171+00:00",
-  "git_commit": "bae37333a1646f3b2b49fd583e0d0c664ff707f9",
+  "generated": "2026-09-11T05:01:39.901066+00:00",
+  "git_commit": "d0c7734043ce4dc9fee6574c811ae0db214380fb",
   "candidates": [
     {
       "tokenizer": "V1 Character BPE",
@@ -10,7 +10,7 @@
       "tokens_per_word": 2.348,
       "characters_per_token": 2.729,
       "unk_rate_percent": 0.0,
-      "encode_time_s": 12.7,
+      "encode_time_s": 12.61,
       "decode_correctness": "Flawed (Lossy UNK fallbacks)"
     },
     {
@@ -20,7 +20,7 @@
       "tokens_per_word": 1.995,
       "characters_per_token": 3.213,
       "unk_rate_percent": 0.0,
-      "encode_time_s": 14.34,
+      "encode_time_s": 14.29,
       "decode_correctness": "Perfect (Deterministic byte reconstruction)"
     },
     {
@@ -30,7 +30,7 @@
       "tokens_per_word": 1.778,
       "characters_per_token": 3.605,
       "unk_rate_percent": 0.0,
-      "encode_time_s": 15.11,
+      "encode_time_s": 15.01,
       "decode_correctness": "Perfect (Deterministic byte reconstruction)"
     },
     {
@@ -40,7 +40,7 @@
       "tokens_per_word": 1.648,
       "characters_per_token": 3.89,
       "unk_rate_percent": 0.0,
-      "encode_time_s": 15.16,
+      "encode_time_s": 15.6,
       "decode_correctness": "Perfect (Deterministic byte reconstruction)"
     }
   ],
@@ -79,7 +79,7 @@
     ],
     "HYPOTHESIS": [
       "The improved sequence compression (higher chars/token) will allow the model to pack more semantic context into the 512 context window.",
-      "The lack of `<unk>` tokens will entirely eliminate the malformed generation artifacts seen in Phase 9, as the model will no longer have to guess missing characters."
+      "The lack of `<unk>` tokens may reduce malformed generation artifacts seen in Phase 9, but since those artifacts may also stem from model capacity or data scarcity, this must be measured in the V2 training phase."
     ]
   },
   "recommendation": {

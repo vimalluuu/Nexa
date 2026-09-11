@@ -1,7 +1,7 @@
 # Nexa Phase 10 — V1 Improvement Analysis and Scaling Plan
 
-**Generated:** 2026-09-11T04:22:17.980107+00:00
-**Git Commit:** `c63ebb15948e159711f1ea563ec30dd72f4c3ed3`
+**Generated:** 2026-09-11T05:00:40.367677+00:00
+**Git Commit:** `d0c7734043ce4dc9fee6574c811ae0db214380fb`
 
 ## Executive Summary
 The Phase 10 analysis deconstructs the frozen Phase 9 evaluation baseline to identify exact bottlenecks in the Nexa V1 architecture. The analysis separates hard observations from inferences and theoretical hypotheses to dictate a concrete, CPU-safe roadmap for Nexa V2.
@@ -33,7 +33,7 @@ The Phase 10 analysis deconstructs the frozen Phase 9 evaluation baseline to ide
 - The small vocabulary size forces frequent word fragmentation, leading to higher token-per-word counts.
 **HYPOTHESIZED**
 - Malformed text outputs like 'expeese' and 'Autoese' may stem from the model struggling to correctly predict long sequences of short token fragments.
-- Using a larger vocab size (4096, 8192, or 16384) or migrating to true Byte-Level BPE (which prevents <unk> tokens entirely) would likely improve semantic boundaries and generation coherence.
+- Using a larger vocab size (4096, 8192, or 16384) or migrating to true Byte-Level BPE (which prevents <unk> tokens entirely) may reduce malformed-token artifacts, but this must be measured rather than assumed.
 
 ## Model Capacity Analysis
 | Model | Params | CPU Feasibility | Est. Memory (Weights) | Relative Cost |
@@ -100,7 +100,7 @@ Ranked strictly by Information Value per Unit of Compute:
 
 ### 1. Tokenizer Rewrite (Byte-Level BPE)
 - **Compute Cost:** Very Low (No training)
-- **Value:** Critical. Determines vocabulary and tokenization efficiency before any data expansion.
+- **Value:** Critical. Determines vocabulary and tokenization efficiency before any data expansion. It may reduce malformed-token artifacts, but this must be measured rather than assumed.
 
 ### 2. Dataset Expansion & Quality Filter
 - **Compute Cost:** Low (Data processing only)

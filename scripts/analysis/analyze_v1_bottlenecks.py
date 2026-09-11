@@ -66,7 +66,7 @@ def generate_analysis():
                 ],
                 "HYPOTHESIZED": [
                     "Malformed text outputs like 'expeese' and 'Autoese' may stem from the model struggling to correctly predict long sequences of short token fragments.",
-                    "Using a larger vocab size (4096, 8192, or 16384) or migrating to true Byte-Level BPE (which prevents <unk> tokens entirely) would likely improve semantic boundaries and generation coherence."
+                    "Using a larger vocab size (4096, 8192, or 16384) or migrating to true Byte-Level BPE (which prevents <unk> tokens entirely) may reduce malformed-token artifacts, but this must be measured rather than assumed."
                 ]
             }
         },
@@ -176,7 +176,7 @@ def generate_analysis():
                 "priority": 1,
                 "experiment": "Tokenizer Rewrite (Byte-Level BPE)",
                 "compute_cost": "Very Low (No training)",
-                "information_value": "Critical. Determines vocabulary and tokenization efficiency before any data expansion."
+                "information_value": "Critical. Determines vocabulary and tokenization efficiency before any data expansion. It may reduce malformed-token artifacts, but this must be measured rather than assumed."
             },
             {
                 "priority": 2,
