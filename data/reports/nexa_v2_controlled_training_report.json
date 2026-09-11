@@ -1,0 +1,275 @@
+{
+  "phase": 14,
+  "git_commit": "5a9561c29fde0c716f53d69e030955ef250ae644",
+  "seed": 42,
+  "model_config": {
+    "vocab_size": 8192,
+    "d_model": 512,
+    "n_layers": 6,
+    "n_heads": 8,
+    "d_ff": 2048,
+    "max_seq_len": 1024,
+    "dropout": 0.1,
+    "norm_type": "rmsnorm",
+    "pos_encoding": "rotary",
+    "tie_embeddings": true,
+    "pad_token_id": 0,
+    "bos_token_id": 1,
+    "eos_token_id": 2
+  },
+  "trainer_config": {
+    "block_size": 1024,
+    "batch_size": 4,
+    "grad_accum_steps": 8,
+    "learning_rate": 0.0006,
+    "min_lr": 6e-05,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "eps": 1e-08,
+    "grad_clip": 1.0,
+    "max_steps": 100,
+    "warmup_steps": 10,
+    "eval_interval": 50,
+    "eval_steps": 20,
+    "save_interval": 50,
+    "keep_last_n": 5,
+    "log_interval": 10,
+    "device": "cpu",
+    "seed": 42,
+    "checkpoint_dir": "checkpoints\\nexa_v2_controlled"
+  },
+  "tokenizer_dir": "data\\processed\\tokenizer_v2\\8192",
+  "train_shard_dir": "data\\processed\\v2\\train",
+  "val_shard_dir": "data\\processed\\v2\\validation",
+  "tokens_per_step": 32768,
+  "total_budget_tokens": 3276800,
+  "effective_batch_size": 32,
+  "tokenizer_vocab_size": 8192,
+  "train_shards_found": 29,
+  "val_shards_found": 4,
+  "shard_token_id_validation": {
+    "train": {
+      "checked_tokens": 20000000,
+      "invalid_tokens": 0,
+      "valid": true
+    },
+    "val": {
+      "checked_tokens": 20000000,
+      "invalid_tokens": 0,
+      "valid": true
+    }
+  },
+  "v1_immutability": {
+    "v1_tokenizer_dir": {
+      "exists": true,
+      "path": "data\\processed\\tokenizer"
+    },
+    "v1_checkpoint_dir": {
+      "exists": true,
+      "path": "checkpoints\\nexa_v1_pilot"
+    },
+    "v1_evaluation_report": {
+      "exists": true,
+      "path": "data\\reports\\nexa_v1_evaluation_report.json"
+    },
+    "v2_corpus_design_json": {
+      "exists": true,
+      "path": "data\\reports\\nexa_v2_corpus_design.json"
+    }
+  },
+  "model_params": {
+    "total": 29366784,
+    "embedding": 4194304,
+    "non_embedding": 25172480,
+    "embedding_pct": 14.28
+  },
+  "train_tokens_loaded": 15000000,
+  "val_tokens_loaded": 5000000,
+  "initial_train_loss": 9.067006,
+  "final_train_loss": 5.753936,
+  "train_step_metrics": [
+    {
+      "step": 10,
+      "loss": 7.214629,
+      "lr": 0.0006,
+      "grad_norm": 1.4768,
+      "tok_per_s": 507.6
+    },
+    {
+      "step": 20,
+      "loss": 6.49326,
+      "lr": 0.0005867852593996914,
+      "grad_norm": 0.6372,
+      "tok_per_s": 507.6
+    },
+    {
+      "step": 30,
+      "loss": 6.362011,
+      "lr": 0.0005427629034738148,
+      "grad_norm": 1.1388,
+      "tok_per_s": 507.8
+    },
+    {
+      "step": 40,
+      "loss": 6.001869,
+      "lr": 0.00047307820134296524,
+      "grad_norm": 0.7857,
+      "tok_per_s": 506.9
+    },
+    {
+      "step": 50,
+      "loss": 5.702045,
+      "lr": 0.0003861361565207949,
+      "grad_norm": 0.7234,
+      "tok_per_s": 507.0
+    },
+    {
+      "step": 60,
+      "loss": 5.445208,
+      "lr": 0.00029242326274078235,
+      "grad_norm": 1.3113,
+      "tok_per_s": 502.6
+    },
+    {
+      "step": 70,
+      "loss": 5.521135,
+      "lr": 0.0002032426780478095,
+      "grad_norm": 0.6923,
+      "tok_per_s": 503.0
+    },
+    {
+      "step": 80,
+      "loss": 5.96954,
+      "lr": 0.0001293508971211035,
+      "grad_norm": 0.6213,
+      "tok_per_s": 503.6
+    },
+    {
+      "step": 90,
+      "loss": 5.482374,
+      "lr": 7.966035926696742e-05,
+      "grad_norm": 0.4532,
+      "tok_per_s": 503.2
+    },
+    {
+      "step": 100,
+      "loss": 5.753936,
+      "lr": 6.0164476704844146e-05,
+      "grad_norm": 0.4487,
+      "tok_per_s": 503.5
+    }
+  ],
+  "val_metrics": [
+    {
+      "step": 50,
+      "val_loss": 5.095476,
+      "val_ppl": 163.2816,
+      "batches": 20,
+      "tokens": 81920
+    },
+    {
+      "step": 100,
+      "val_loss": 4.550239,
+      "val_ppl": 94.655,
+      "batches": 20,
+      "tokens": 81920
+    }
+  ],
+  "total_tokens_trained": 3276800,
+  "wall_clock_seconds": 6541.53,
+  "end_to_end_tps": 500.9,
+  "midpoint_checkpoint": "checkpoints\\nexa_v2_controlled\\step_0000050.pt",
+  "final_checkpoint": "checkpoints\\nexa_v2_controlled\\step_0000100.pt",
+  "final_val_loss": 4.550239,
+  "final_val_ppl": 94.655,
+  "final_val_batches": 20,
+  "final_val_tokens": 81920,
+  "checkpoint_reload": {
+    "val_loss_before": 4.550239,
+    "val_loss_after": 4.550239,
+    "val_ppl_after": 94.655,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "passed": true,
+    "step_in_checkpoint": 100,
+    "param_count_matches": true
+  },
+  "resume_verification": {
+    "resumed_from_step": 100,
+    "extra_steps": 5,
+    "losses": [
+      5.28622,
+      4.561564,
+      4.419197,
+      5.007292,
+      6.717436
+    ],
+    "all_finite": true,
+    "passed": true
+  },
+  "inference_check": {
+    "prompt": "The history of science",
+    "max_new_tokens": 50,
+    "greedy_token_ids": [
+      290,
+      290,
+      282,
+      290,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282,
+      282
+    ],
+    "greedy_text": " and and of and of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of of",
+    "greedy_tokens_generated": 50,
+    "seeded_tokens_generated": 50,
+    "seeded_text": " of vp The of documentosuans,ial and of one of and of H of tubot,omin would on of an of that it, of constr controller in and recordistlandilinticceortapan.or",
+    "token_ids_in_range": true,
+    "eos_handled": true,
+    "seeded_reproducible": true,
+    "passed": true
+  }
+}
