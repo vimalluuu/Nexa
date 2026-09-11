@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "phase": 13,
+    "target": "Nexa V2 Architecture and Configuration",
+    "v1_immutable": true
+  },
+  "benchmarks": [
+    {
+      "name": "V1 Baseline",
+      "vocab_size": 2048,
+      "d_model": 256,
+      "n_layers": 6,
+      "n_heads": 8,
+      "d_ff": 1024,
+      "seq_len": 512,
+      "total_params": 6819072,
+      "embedding_params": 524288,
+      "forward_ms": 1288.602590560913,
+      "backward_ms": 626.8165588378906,
+      "optimizer_ms": 22.865009307861328,
+      "step_time_ms": 1938.2973670959473,
+      "tokens_per_sec": 1056.5974214103248
+    },
+    {
+      "name": "Candidate A (512)",
+      "vocab_size": 8192,
+      "d_model": 384,
+      "n_layers": 6,
+      "n_heads": 12,
+      "d_ff": 1536,
+      "seq_len": 512,
+      "total_params": 17306496,
+      "embedding_params": 3145728,
+      "forward_ms": 2187.9472255706787,
+      "backward_ms": 1168.0569171905518,
+      "optimizer_ms": 63.01374435424805,
+      "step_time_ms": 3419.0249919891357,
+      "tokens_per_sec": 599.0011786396757
+    },
+    {
+      "name": "Candidate A (1024)",
+      "vocab_size": 8192,
+      "d_model": 384,
+      "n_layers": 6,
+      "n_heads": 12,
+      "d_ff": 1536,
+      "seq_len": 1024,
+      "total_params": 17306496,
+      "embedding_params": 3145728,
+      "forward_ms": 6318.691253662109,
+      "backward_ms": 3062.8560066223145,
+      "optimizer_ms": 63.66772651672363,
+      "step_time_ms": 9445.221042633057,
+      "tokens_per_sec": 433.6584587604477
+    },
+    {
+      "name": "Candidate A (2048)",
+      "vocab_size": 8192,
+      "d_model": 384,
+      "n_layers": 6,
+      "n_heads": 12,
+      "d_ff": 1536,
+      "seq_len": 2048,
+      "total_params": 17306496,
+      "embedding_params": 3145728,
+      "forward_ms": 28649.34320449829,
+      "backward_ms": 13087.564325332642,
+      "optimizer_ms": 553.2142162322998,
+      "step_time_ms": 42290.64841270447,
+      "tokens_per_sec": 193.70712692924928
+    },
+    {
+      "name": "Candidate B (512)",
+      "vocab_size": 8192,
+      "d_model": 512,
+      "n_layers": 6,
+      "n_heads": 8,
+      "d_ff": 2048,
+      "seq_len": 512,
+      "total_params": 29366784,
+      "embedding_params": 4194304,
+      "forward_ms": 1825.543451309204,
+      "backward_ms": 1330.3251266479492,
+      "optimizer_ms": 100.9364128112793,
+      "step_time_ms": 3256.8115234375,
+      "tokens_per_sec": 628.8358983200774
+    },
+    {
+      "name": "Candidate B (1024)",
+      "vocab_size": 8192,
+      "d_model": 512,
+      "n_layers": 6,
+      "n_heads": 8,
+      "d_ff": 2048,
+      "seq_len": 1024,
+      "total_params": 29366784,
+      "embedding_params": 4194304,
+      "forward_ms": 5219.881343841553,
+      "backward_ms": 3358.891248703003,
+      "optimizer_ms": 131.56352043151855,
+      "step_time_ms": 8710.34369468689,
+      "tokens_per_sec": 470.2455085094365
+    }
+  ],
+  "training_time_projections": {
+    "V1 Baseline": {
+      "10000000": "2.6 hrs",
+      "25000000": "6.6 hrs",
+      "50000000": "13.1 hrs",
+      "100000000": "26.3 hrs",
+      "250000000": "65.7 hrs",
+      "283000000": "74.4 hrs"
+    },
+    "Candidate A (512)": {
+      "10000000": "4.6 hrs",
+      "25000000": "11.6 hrs",
+      "50000000": "23.2 hrs",
+      "100000000": "46.4 hrs",
+      "250000000": "115.9 hrs",
+      "283000000": "131.2 hrs"
+    },
+    "Candidate A (1024)": {
+      "10000000": "6.4 hrs",
+      "25000000": "16.0 hrs",
+      "50000000": "32.0 hrs",
+      "100000000": "64.1 hrs",
+      "250000000": "160.1 hrs",
+      "283000000": "181.3 hrs"
+    },
+    "Candidate A (2048)": {
+      "10000000": "14.3 hrs",
+      "25000000": "35.9 hrs",
+      "50000000": "71.7 hrs",
+      "100000000": "143.4 hrs",
+      "250000000": "358.5 hrs",
+      "283000000": "405.8 hrs"
+    },
+    "Candidate B (512)": {
+      "10000000": "4.4 hrs",
+      "25000000": "11.0 hrs",
+      "50000000": "22.1 hrs",
+      "100000000": "44.2 hrs",
+      "250000000": "110.4 hrs",
+      "283000000": "125.0 hrs"
+    },
+    "Candidate B (1024)": {
+      "10000000": "5.9 hrs",
+      "25000000": "14.8 hrs",
+      "50000000": "29.5 hrs",
+      "100000000": "59.1 hrs",
+      "250000000": "147.7 hrs",
+      "283000000": "167.2 hrs"
+    }
+  },
+  "tokens_per_parameter": {
+    "V1 Baseline": {
+      "25000000": "3.7 t/p",
+      "50000000": "7.3 t/p",
+      "100000000": "14.7 t/p",
+      "250000000": "36.7 t/p",
+      "283000000": "41.5 t/p"
+    },
+    "Candidate A": {
+      "25000000": "1.4 t/p",
+      "50000000": "2.9 t/p",
+      "100000000": "5.8 t/p",
+      "250000000": "14.4 t/p",
+      "283000000": "16.4 t/p"
+    },
+    "Candidate B": {
+      "25000000": "0.9 t/p",
+      "50000000": "1.7 t/p",
+      "100000000": "3.4 t/p",
+      "250000000": "8.5 t/p",
+      "283000000": "9.6 t/p"
+    }
+  },
+  "training_configuration": {
+    "batch_size": 4,
+    "gradient_accumulation": 8,
+    "effective_batch_size": 32,
+    "sequence_length": 1024,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0006,
+    "weight_decay": 0.1,
+    "warmup_steps": 2000,
+    "scheduler": "cosine",
+    "gradient_clipping": 1.0,
+    "checkpoint_interval": 1000,
+    "validation_interval": 500,
+    "random_seed": 42
+  },
+  "recommendation": {
+    "model_size": "Candidate B (~29M)",
+    "context_length": 1024,
+    "batch_configuration": "BS=4, GradAcc=8",
+    "initial_token_target": "50_000_000",
+    "reasoning": "Candidate B (512 dim) proved computationally faster on the CPU than Candidate A (384 dim) due to power-of-2 cache alignment, achieving 470 tok/s at 1024 context. 50M tokens will take ~29.5 hours, providing a strong baseline."
+  },
+  "controlled_run_specification": {
+    "objective": "Verify full V2 end-to-end integration before committing to a 30-hour training run.",
+    "duration": "100 steps",
+    "validation": "Evaluate at step 50 and 100",
+    "checkpointing": "Save checkpoint at step 100, then test resume.",
+    "generation": "Test generation after 100 steps."
+  }
+}
