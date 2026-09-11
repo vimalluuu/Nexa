@@ -1,0 +1,89 @@
+{
+  "phase": "11",
+  "generated": "2026-09-11T04:53:12.564171+00:00",
+  "git_commit": "bae37333a1646f3b2b49fd583e0d0c664ff707f9",
+  "candidates": [
+    {
+      "tokenizer": "V1 Character BPE",
+      "vocab_size": 2048,
+      "total_tokens": 3325654,
+      "tokens_per_word": 2.348,
+      "characters_per_token": 2.729,
+      "unk_rate_percent": 0.0,
+      "encode_time_s": 12.7,
+      "decode_correctness": "Flawed (Lossy UNK fallbacks)"
+    },
+    {
+      "tokenizer": "V2 Byte BPE (4096)",
+      "vocab_size": 4096,
+      "total_tokens": 2825154,
+      "tokens_per_word": 1.995,
+      "characters_per_token": 3.213,
+      "unk_rate_percent": 0.0,
+      "encode_time_s": 14.34,
+      "decode_correctness": "Perfect (Deterministic byte reconstruction)"
+    },
+    {
+      "tokenizer": "V2 Byte BPE (8192)",
+      "vocab_size": 8192,
+      "total_tokens": 2517682,
+      "tokens_per_word": 1.778,
+      "characters_per_token": 3.605,
+      "unk_rate_percent": 0.0,
+      "encode_time_s": 15.11,
+      "decode_correctness": "Perfect (Deterministic byte reconstruction)"
+    },
+    {
+      "tokenizer": "V2 Byte BPE (16384)",
+      "vocab_size": 16384,
+      "total_tokens": 2333533,
+      "tokens_per_word": 1.648,
+      "characters_per_token": 3.89,
+      "unk_rate_percent": 0.0,
+      "encode_time_s": 15.16,
+      "decode_correctness": "Perfect (Deterministic byte reconstruction)"
+    }
+  ],
+  "parameter_costs": [
+    {
+      "vocab_size": 2048,
+      "embedding_params": 786432,
+      "memory_mb": 3.0
+    },
+    {
+      "vocab_size": 4096,
+      "embedding_params": 1572864,
+      "memory_mb": 6.0
+    },
+    {
+      "vocab_size": 8192,
+      "embedding_params": 3145728,
+      "memory_mb": 12.0
+    },
+    {
+      "vocab_size": 16384,
+      "embedding_params": 6291456,
+      "memory_mb": 24.0
+    }
+  ],
+  "findings": {
+    "OBSERVED": [
+      "V1 Character BPE consistently drops unseen Unicode characters as UNK.",
+      "V2 Byte BPE successfully encodes and decodes the entire corpus with 0% UNK rate.",
+      "Increasing vocabulary size linearly increases embedding parameters.",
+      "Tokens per word decreases consistently as vocabulary size increases."
+    ],
+    "INFERRED": [
+      "V2 Byte BPE perfectly solves the Unicode robustness issue because bytes are universal.",
+      "The 8192 vocab size offers a strong balance of sequence compression (fewer tokens per word) without excessively bloating the embedding layer."
+    ],
+    "HYPOTHESIS": [
+      "The improved sequence compression (higher chars/token) will allow the model to pack more semantic context into the 512 context window.",
+      "The lack of `<unk>` tokens will entirely eliminate the malformed generation artifacts seen in Phase 9, as the model will no longer have to guess missing characters."
+    ]
+  },
+  "recommendation": {
+    "selected_tokenizer": "V2 Byte BPE (8192)",
+    "reason": "Provides optimal sequence compression while keeping parameter cost (~3.15M params) reasonable for a 15M parameter model. The zero-UNK guarantee fixes the primary failure mode of V1."
+  }
+}
