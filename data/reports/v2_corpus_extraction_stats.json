@@ -1,0 +1,38 @@
+{
+  "simple_english_wikipedia": {
+    "docs_processed": 559343,
+    "docs_kept": 122126,
+    "chars_kept": 405062627,
+    "skipped_namespace": 160575,
+    "rejected_too_short": 174978,
+    "skipped_redirect_empty": 101664
+  },
+  "wikimedia_english": {
+    "docs_processed": 27352,
+    "skipped_redirect_empty": 6004,
+    "docs_kept": 19945,
+    "chars_kept": 441132492,
+    "rejected_too_short": 1202,
+    "skipped_namespace": 201
+  },
+  "pg19": {
+    "docs_processed": 25,
+    "docs_kept": 25,
+    "chars_kept": 18025433
+  },
+  "standard_ebooks": {
+    "status": "unavailable (missing epub parser)"
+  },
+  "project_gutenberg": {
+    "status": "unavailable (directory empty)"
+  },
+  "deduplication": {
+    "total_candidates": 142096,
+    "final_unique": 142081,
+    "final_chars": 862576277,
+    "docs_by_source_simple_english_wikipedia": 122112,
+    "exact_duplicates": 15,
+    "docs_by_source_wikimedia_english": 19944,
+    "docs_by_source_pg19": 25
+  }
+}

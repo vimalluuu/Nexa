@@ -1,0 +1,35 @@
+{
+  "tokenizer": {
+    "version": "NexaByteTokenizer",
+    "vocab_size": 8192
+  },
+  "split": {
+    "seed": 42,
+    "train_ratio": 0.9
+  },
+  "train": {
+    "docs": 127872,
+    "total_tokens": 282296935,
+    "total_chars": 772913316,
+    "total_unks": 0,
+    "shards_created": 29,
+    "sources": {
+      "wikimedia_english": 17938,
+      "simple_english_wikipedia": 109911,
+      "pg19": 23
+    }
+  },
+  "validation": {
+    "docs": 14209,
+    "total_tokens": 32531927,
+    "total_chars": 89662961,
+    "total_unks": 0,
+    "shards_created": 4,
+    "sources": {
+      "simple_english_wikipedia": 12201,
+      "wikimedia_english": 2006,
+      "pg19": 2
+    }
+  },
+  "total_tokens_conserved": 314828862
+}

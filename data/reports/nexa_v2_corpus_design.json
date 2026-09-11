@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "phase": 12,
+    "target": "Nexa V2 Corpus Design",
+    "v1_immutable": true
+  },
+  "available_sources": {
+    "wikimedia_english": {
+      "docs_processed": 27352,
+      "skipped_redirect_empty": 6004,
+      "docs_kept": 19945,
+      "chars_kept": 441132492,
+      "rejected_too_short": 1202,
+      "skipped_namespace": 201
+    },
+    "simple_english_wikipedia": {
+      "docs_processed": 559343,
+      "docs_kept": 122126,
+      "chars_kept": 405062627,
+      "skipped_namespace": 160575,
+      "rejected_too_short": 174978,
+      "skipped_redirect_empty": 101664
+    },
+    "pg19": {
+      "docs_processed": 25,
+      "docs_kept": 25,
+      "chars_kept": 18025433
+    },
+    "standard_ebooks": {
+      "status": "unavailable (missing epub parser)"
+    },
+    "project_gutenberg": {
+      "status": "unavailable (directory empty)"
+    }
+  },
+  "deduplication": {
+    "total_candidates": 142096,
+    "final_unique": 142081,
+    "final_chars": 862576277,
+    "docs_by_source_simple_english_wikipedia": 122112,
+    "exact_duplicates": 15,
+    "docs_by_source_wikimedia_english": 19944,
+    "docs_by_source_pg19": 25
+  },
+  "tokenization": {
+    "tokenizer": {
+      "version": "NexaByteTokenizer",
+      "vocab_size": 8192
+    },
+    "split": {
+      "seed": 42,
+      "train_ratio": 0.9
+    },
+    "train": {
+      "docs": 127872,
+      "total_tokens": 282296935,
+      "total_chars": 772913316,
+      "total_unks": 0,
+      "shards_created": 29,
+      "sources": {
+        "wikimedia_english": 17938,
+        "simple_english_wikipedia": 109911,
+        "pg19": 23
+      }
+    },
+    "validation": {
+      "docs": 14209,
+      "total_tokens": 32531927,
+      "total_chars": 89662961,
+      "total_unks": 0,
+      "shards_created": 4,
+      "sources": {
+        "simple_english_wikipedia": 12201,
+        "wikimedia_english": 2006,
+        "pg19": 2
+      }
+    },
+    "total_tokens_conserved": 314828862
+  },
+  "scenarios": [
+    {
+      "name": "Conservative",
+      "tokens": 10000000,
+      "storage_mb": 20.0,
+      "time_hrs": 5.555555555555555,
+      "benefit": "Rapid iteration (1 day training)",
+      "risk": "Suboptimal model capacity usage"
+    },
+    {
+      "name": "Recommended",
+      "tokens": 25000000,
+      "storage_mb": 50.0,
+      "time_hrs": 13.88888888888889,
+      "benefit": "Balanced learning within overnight window",
+      "risk": "Limits exposure to literature data"
+    },
+    {
+      "name": "Ambitious",
+      "tokens": 50000000,
+      "storage_mb": 100.0,
+      "time_hrs": 27.77777777777778,
+      "benefit": "Maximized data diversity",
+      "risk": "Heavy thermal load (>24 hours) CPU training"
+    }
+  ],
+  "recommendation": {
+    "corpus_size": "25,000,000 tokens",
+    "reasoning": "Fits within an overnight ~14 hour CPU training bound while providing a measurable scale-up from V1."
+  }
+}
